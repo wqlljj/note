@@ -3,3 +3,9 @@ https://blog.csdn.net/liao277218962/article/details/79352211
 
 手动签名：android-signaturepad
 https://github.com/gcacace/android-signaturepad
+
+数据绑定：DataBinding 
+https://www.jianshu.com/p/38f0de2c9300
+
+数据库：Room
+https://www.jianshu.com/p/cfde3535233d
