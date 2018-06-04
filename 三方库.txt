@@ -1,2 +1,5 @@
 动态权限申请：PermissionsDispatcher
 https://blog.csdn.net/liao277218962/article/details/79352211
+
+手动签名：android-signaturepad
+https://github.com/gcacace/android-signaturepad
