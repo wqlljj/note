@@ -1,0 +1,65 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="visitor"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+
+        <variable
+            name="admin"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+
+        <variable
+            name="employee"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/welcome_background"
+        android:fitsSystemWindows="false"
+        android:minHeight="103dp"
+        android:paddingTop="?actionBarSize"
+        tools:context="com.cloudminds.register.ui.fragment.welcome.WelcomeFragment">
+
+        <Button
+            android:id="@+id/tv_enter"
+            android:layout_width="500dp"
+            android:layout_height="94dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="111dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_background"
+            android:onClick="@{() -> visitor.onClick()}"
+            android:scaleType="fitXY"
+            android:text="@string/visitor_enter"
+            android:textColor="#007BFA"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/admin_enter"
+            android:layout_width="100dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:onClick="@{() -> employee.onClick()}"
+            android:text="@string/employee_enter"
+            android:textColor="#ffffffff"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_enter" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

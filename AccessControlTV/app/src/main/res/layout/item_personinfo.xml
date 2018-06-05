@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@+id/person_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView android:id="@+id/cardView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="50.0dip" android:layout_marginRight="50.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="5.5">
+            <RelativeLayout android:background="@color/text_white" android:layout_width="fill_parent" android:layout_height="136.0dip">
+                <ImageView android:id="@+id/person_head" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" android:scaleType="fitXY" />
+                <ImageView android:id="@+id/person_bg_head" android:background="@drawable/bg_header_2" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" android:src="@drawable/bg_header_1" />
+                <ImageView android:id="@+id/birthday_icon" android:visibility="invisible" android:layout_width="30.0dip" android:layout_height="25.0dip" android:layout_marginLeft="40.0dip" android:layout_marginTop="10.0dip" android:src="@drawable/birthday" />
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_toRightOf="@id/person_head">
+                    <TextView android:textSize="25.0sp" android:textColor="@color/text_black" android:layout_gravity="center_horizontal" android:id="@+id/name_en" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Seven Peng" />
+                    <TextView android:textSize="20.0sp" android:textColor="@color/text_black" android:layout_gravity="center_horizontal" android:id="@+id/name_zh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="彭于晏" />
+                    <TextView android:textSize="16.0sp" android:textColor="@color/text_black" android:layout_gravity="center_horizontal" android:id="@+id/job" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Best in innovation" />
+                </LinearLayout>
+            </RelativeLayout>
+            <TextView android:textSize="21.0sp" android:textColor="@color/text_white" android:gravity="center" android:id="@id/welcome_msg" android:background="@drawable/orange" android:layout_width="fill_parent" android:layout_height="48.0dip" android:text="达闼祝您生日快乐" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="240dp"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:orientation="vertical"-->
+    <!--android:id="@+id/person_info"-->
+    <!--android:paddingBottom="10dp"-->
+    <!--&gt;-->
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="230dp"-->
+        <!--app:cardCornerRadius="8dp"-->
+        <!--&gt;-->
+    <!--<LinearLayout-->
+        <!--android:orientation="vertical" android:layout_width="match_parent"-->
+        <!--android:layout_height="230dp"-->
+        <!--android:layout_weight="5.5">-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="4"-->
+            <!--android:background="@drawable/background_normal"-->
+            <!--&gt;-->
+            <!--<ImageView-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:id="@+id/person_head"-->
+                <!--android:scaleType="fitXY"-->
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:id="@+id/person_bg_head"-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:src="@drawable/bg_header_1"-->
+                <!--android:background="@drawable/bg_header_2"-->
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="45dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_marginLeft="40dp"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:visibility="invisible"-->
+                <!--android:id="@+id/birthday_icon"-->
+                <!--android:src="@drawable/birthday"/>-->
+            <!--&lt;!&ndash;android:src="@drawable/birthday"&ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_toRightOf="@+id/person_head"-->
+                <!--android:orientation="vertical"-->
+                <!--android:gravity="center"-->
+                <!--&gt;-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:id="@+id/name_en"-->
+                    <!--android:text="Seven Peng"-->
+                    <!--android:textSize="35sp"-->
+                    <!--android:textColor="@color/text_black"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:id="@+id/name_zh"-->
+                    <!--android:text="彭于晏"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:textSize="25sp"-->
+                    <!--android:textColor="@color/text_black"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:id="@+id/job"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="Best in innovation"-->
+                    <!--android:textSize="25sp"-->
+                    <!--android:textColor="@color/text_black"-->
+                    <!--/>-->
+            <!--</LinearLayout>-->
+
+        <!--</RelativeLayout>-->
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1.5"-->
+            <!--android:text="达闼祝您生日快乐"-->
+            <!--android:gravity="center"-->
+            <!--android:id="@+id/welcome_msg"-->
+            <!--android:textSize="28sp"-->
+            <!--android:textColor="@color/text_white"-->
+            <!--android:background="@drawable/orange"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+    <!--</android.support.v7.widget.CardView>-->
+
+<!--</LinearLayout>-->

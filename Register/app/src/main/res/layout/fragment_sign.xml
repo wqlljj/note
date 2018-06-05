@@ -1,0 +1,40 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clearCallback"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+
+        <variable
+            name="finishCallback"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        tools:context="com.cloudminds.register.ui.fragment.visitor.SignFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <com.cloudminds.register.ui.view.WhiteBroad
+            android:id="@+id/sign_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            custom:sign_padding_start="150"/>
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> clearCallback.onClick()}"
+            android:text="@string/sign_clear" />
+    </LinearLayout>
+</layout>

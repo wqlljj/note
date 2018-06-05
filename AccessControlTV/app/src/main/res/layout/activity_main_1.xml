@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:theme="@style/FullscreenTheme" android:background="#ff0099cc" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/main_bg" android:background="@drawable/main_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="horizontal" android:background="#33000000" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="200.0dip">
+            <ImageView android:layout_width="181.0dip" android:layout_height="fill_parent" android:src="@drawable/company_logo" android:scaleType="center" />
+            <com.brioal.adtextviewlib.view.ADTextView android:id="@id/ad_textview" android:paddingLeft="35.0dip" android:paddingRight="35.0dip" android:layout_width="900.0dip" android:layout_height="fill_parent" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="27.0dip" android:layout_marginTop="27.0dip" android:layout_marginRight="27.0dip">
+            <RelativeLayout android:id="@id/show2" android:layout_width="792.0dip" android:layout_height="457.0dip">
+                <RelativeLayout android:gravity="center" android:id="@id/videoLayout" android:background="#88000000" android:padding="13.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" android:layout_centerVertical="true">
+                    <VideoView android:layout_gravity="center_horizontal" android:id="@id/videoView" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+                </RelativeLayout>
+                <RelativeLayout android:id="@id/welcomeLayout" android:background="@drawable/bg_welcome_msg" android:visibility="visible" android:layout_width="792.0dip" android:layout_height="457.0dip" android:layout_alignParentTop="true" android:layout_alignParentStart="true">
+                    <TextView android:textSize="67.0sp" android:textColor="@color/text_white" android:gravity="center" android:id="@id/welcome_msg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="38.0dip" android:layout_marginRight="38.0dip" android:text="Welcome representatives from Softbank Vision Fund led by Mr. Murtaza Ahmed" android:maxLines="4" android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/personInfoLayout" android:layout_width="407.0dip" android:layout_height="457.0dip" android:layout_marginLeft="27.0dip">
+                <SurfaceView android:id="@id/mSurface" android:layout_width="387.0dip" android:layout_height="437.0dip" android:layout_centerInParent="true" />
+                <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/video_bg" />
+                <com.cloudminds.meta.accesscontroltv.view.CustomTextClock android:textSize="21.0sp" android:gravity="right" android:id="@+id/timeClock" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip" android:layout_marginBottom="20.0dip" android:layout_alignParentBottom="true" />
+                <com.cloudminds.meta.accesscontroltv.view.CustomRecyclerView android:layout_gravity="center_horizontal" android:id="@id/recyclerView_personInfo" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginTop="33.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="33.0dip" android:layout_centerInParent="true" app:layoutManager="LinearLayoutManager" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/debug" android:visibility="gone" android:layout_width="200.0dip" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+        <RelativeLayout android:id="@id/setLayout" android:background="@color/lb_grey" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="IP:" />
+                <EditText android:id="@id/ip" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+        <Button android:layout_gravity="center_vertical" android:id="@id/publishBg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="背景" />
+        <Button android:layout_gravity="center_vertical" android:id="@id/publishPerson" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="识别" />
+        <Button android:layout_gravity="center_vertical" android:id="@id/playVideo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="视频/欢迎语" />
+        <Button android:layout_gravity="center_vertical" android:id="@id/dailyGuide_bt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="动态" />
+        <Button android:layout_gravity="center_vertical" android:id="@id/set" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="设置" />
+    </LinearLayout>
+</FrameLayout>

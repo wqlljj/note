@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="config_fragment_slide_width_enter">960dp</dimen>
+    <dimen name="config_fragment_slide_width_exit">-960dp</dimen>
+
+    <dimen name="config_text_input_height" >40dp</dimen>
+    <dimen name="config_each_item_height" >70dp</dimen>
+    <dimen name="config_whitebroad" >70dp</dimen>
+</resources>

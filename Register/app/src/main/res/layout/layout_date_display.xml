@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="selectDate"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:onClick="@{() -> selectDate.onClick()}" >
+
+        <TextView
+            android:id="@+id/date_year"
+            android:layout_width="125dp"
+            android:layout_height="55dp"
+            android:background="@drawable/input_rectangle_background"
+            android:gravity="center"
+            android:text="@string/date_null"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="@string/date_year"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/date_month"
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:background="@drawable/input_rectangle_background"
+            android:gravity="center"
+            android:text="@string/date_null"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="@string/date_month"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/date_day"
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:background="@drawable/input_rectangle_background"
+            android:gravity="center"
+            android:text="@string/date_null"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="@string/date_day"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</layout>

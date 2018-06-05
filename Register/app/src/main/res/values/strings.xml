@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name" translatable="false">Register</string>
+    <string name="employee">Employee</string>
+    <string name="visitor">Visitor</string>
+    <string name="admin">Admin</string>
+
+    <string-array name="array_gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="array_live">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="array_position">
+        <item>PK</item>
+        <item>CD</item>
+        <item>SZ</item>
+        <item>FS</item>
+    </string-array>
+
+    <string-array name="array_purpose">
+        <item>Business</item>
+        <item>Supplier</item>
+        <item>Private visit</item>
+        <item>Interview</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="config_default_position" translatable="false">PK</string>
+    <string name="config_default_gender" translatable="false">0</string>
+    <string name="config_default_visitor_number" translatable="false">1</string>
+    <string name="config_default_company" translatable="false">default</string>
+
+    <string name="employee_msg">%1$s isn\'t empty!</string>
+    <string name="visitor_user_name">Name(Required)</string>
+    <string name="visitor_gender">Gender</string>
+    <string name="visitor_company">Company(Required)</string>
+    <string name="visitor_live">Active</string>
+    <string name="visitor_visitors">Visitors(Required)</string>
+    <string name="visitor_purpose">Purpose(Required)</string>
+    <string name="visitor_interviewer">Interviewer(Required)</string>
+    <string name="visitor_interviewer_phone">Interviewer\'s phone(Optional)</string>
+    <string name="visitor_interviewer_email">Interviewer\'s email(Optional)</string>
+    <string name="visitor_position">Position</string>
+    <string name="visitor_take_a_photo">take a photo</string>
+    <string name="visitor_phone">Phone</string>
+
+    <string name="employee_user_name">Name(Required)</string>
+    <string name="employee_live">Active</string>
+    <string name="employee_eid">ID(Required)</string>
+    <string name="employee_ename">English name(Required)</string>
+    <string name="employee_department_id">Department\'s ID(Required)</string>
+    <string name="employee_gender">Gender</string>
+    <string name="employee_birthday">Birthday</string>
+    <string name="employee_ed">Employment Date</string>
+    <string name="employee_phone">Phone(Optional)</string>
+    <string name="employee_position">Position</string>
+    <string name="employee_email">Email(Optional)</string>
+
+    <string name="admin_password">Password</string>
+
+    <string name="admin_login">login</string>
+    <string name="please_admin_login">Please login!</string>
+    <string name="login_success">Login successful</string>
+    <string name="login_failure">Login failure</string>
+    <string name="login_password_incorrect">Password incorrect</string>
+
+    <string name="menu_login">Login</string>
+    <string name="menu_next">Next</string>
+    <string name="menu_skip">Skip</string>
+
+    <string name="Uploading">Uploading</string>
+    <string name="tv_visitor_photo_no_exists">Photo no exists</string>
+    <string name="employee_request_problem">Incomplete information</string>
+
+    <string name="phone_error">Phone number is error.</string>
+    <string name="email_error">Email is error.</string>
+    <string name="sign_clear">clear</string>
+    <string name="sign_finish">finish</string>
+    <string name="save_sign">Save the sign!</string>
+    <string name="need_sign">Need sign!</string>
+    <string name="visitor_enter">Visitor Enter</string>
+    <string name="admin_enter">Admin Enter</string>
+    <string name="employee_enter">Employee Enter</string>
+    <string name="already_login">Already login</string>
+    <string name="post_success">Success</string>
+    <string name="success_register_text">Register Success</string>
+    <string name="success_ok">OK</string>
+    <string name="login_password_text">Password</string>
+    <string name="admin_request_success">Request success</string>
+    <string name="entity_request_success">Request success</string>
+    <string name="update_request_success">Update success</string>
+
+    <string name="permission_storage">Need permission to save the picture</string>
+    <string name="name_filter_display" translatable="false">%1$s-%2$s</string>
+
+    <string name="request_network_error">Request network error!</string>
+    <string name="request_error">Request error!</string>
+    <string name="date_year">year</string>
+    <string name="date_month">month</string>
+    <string name="date_day">day</string>
+    <string name="date_null">xx</string>
+    <string name="employee_request_problem_1">Please enter the staff information in the background</string>
+    <string name="network_unavailable">Network is unavailable</string>
+    <string name="network_available">Network is available</string>
+    <string name="data_update">Data update</string>
+</resources>

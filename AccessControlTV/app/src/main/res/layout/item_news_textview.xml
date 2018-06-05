@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="95dp"
+    android:id="@+id/dailyGuide_tv"
+    android:text="达闼科技中标中国移动达闼科技中标中国移动达闼科技中标中国移动"
+    android:gravity="center"
+    android:paddingLeft="20dp"
+    android:textSize="40sp"
+    android:singleLine="true"
+    android:textColor="@color/text_white"
+    >
+</TextView>

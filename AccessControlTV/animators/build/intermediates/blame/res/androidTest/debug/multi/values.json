@@ -1,0 +1,83 @@
+[
+    {
+        "outputFile": "E:\\android_project\\AccessControlTV\\animators\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 372,
+                    "endColumn": 74,
+                    "endOffset": 442
+                },
+                "from": {
+                    "file": "C:\\Users\\wangqi\\.android\\build-cache\\03ddc46858c8c96bc67b57f61327d981e04ed766\\output\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 372,
+                        "endColumn": 74,
+                        "endOffset": 442
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 447,
+                    "endColumn": 75,
+                    "endOffset": 518
+                },
+                "from": {
+                    "file": "C:\\Users\\wangqi\\.android\\build-cache\\03ddc46858c8c96bc67b57f61327d981e04ed766\\output\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 447,
+                        "endColumn": 75,
+                        "endOffset": 518
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 523,
+                    "endColumn": 71,
+                    "endOffset": 590
+                },
+                "from": {
+                    "file": "C:\\Users\\wangqi\\.android\\build-cache\\03ddc46858c8c96bc67b57f61327d981e04ed766\\output\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 523,
+                        "endColumn": 71,
+                        "endOffset": 590
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 595,
+                    "endColumn": 65,
+                    "endOffset": 656
+                },
+                "from": {
+                    "file": "C:\\Users\\wangqi\\.android\\build-cache\\03ddc46858c8c96bc67b57f61327d981e04ed766\\output\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 595,
+                        "endColumn": 65,
+                        "endOffset": 656
+                    }
+                }
+            }
+        ]
+    }
+]

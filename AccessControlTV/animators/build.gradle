@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
+
+  defaultConfig {
+    minSdkVersion 19
+    targetSdkVersion 25
+  }
+}
+
+dependencies {
+  compile  "com.android.support:support-compat:25.3.1"
+  compile  "com.android.support:support-core-ui:25.3.1"
+  compile  "com.android.support:recyclerview-v7:25.3.1"
+}

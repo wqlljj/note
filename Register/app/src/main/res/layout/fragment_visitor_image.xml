@@ -1,0 +1,52 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isPhotoExist"
+            type="Boolean" />
+
+        <variable
+            name="previewClickCallback"
+            type="com.cloudminds.register.callback.OnClickCallback" />
+    </data>
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:id="@+id/layout_visitor_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="90dp">
+
+        <Button
+            android:id="@+id/btn_visitor_photo"
+            android:layout_width="277dp"
+            android:layout_height="79dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_background_blue"
+            android:onClick="@{()->previewClickCallback.onClick()}"
+            android:text="@string/visitor_take_a_photo"
+            android:textColor="#ffffffff" />
+
+        <ImageView
+            android:id="@+id/iv_visitor_photo_preview"
+            android:layout_width="480dp"
+            android:layout_height="300dp"
+            android:layout_below="@id/btn_visitor_photo"
+            android:layout_centerInParent="true"
+            android:scaleType="fitCenter"
+            app:visibleGone="@{isPhotoExist}"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_visitor_photo_no_exists"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/btn_visitor_photo"
+            android:gravity="center"
+            android:text="@string/tv_visitor_photo_no_exists"
+            android:textColor="@android:color/holo_red_light"
+            app:visibleGone="@{!isPhotoExist}" />
+    </RelativeLayout>
+</layout>

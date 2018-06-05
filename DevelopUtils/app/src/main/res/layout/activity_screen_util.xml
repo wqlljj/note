@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <import type="com.example.wangqi.developutils.util.ScreenUtil"/>
+        <import type="android.content.Context"/>
+        <variable
+            name="value"
+            type="String"/>
+    </data>
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.wangqi.developutils.view.ScreenUtilActivity"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@={value}"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:hint="scale"
+                android:text="@={ScreenUtil.floatToString(ScreenUtil.scale)}"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="fontScale"
+                android:text="@={ScreenUtil.floatToString(ScreenUtil.fontScale)}"
+                />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dip2px"
+            android:onClick="@{(view)->ScreenUtil.dip2px(view.getContext(),Integer.valueOf(value))}"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sp2px"
+            android:onClick="@{(view)->ScreenUtil.sp2px(view.getContext(),Integer.valueOf(value))}"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="px2dip"
+            android:onClick="@{(view)->ScreenUtil.px2dip(view.getContext(),Integer.valueOf(value))}"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="px2sp"
+            android:onClick="@{(view)->ScreenUtil.px2sp(view.getContext(),Integer.valueOf(value))}"/>
+    </LinearLayout>
+</layout>
