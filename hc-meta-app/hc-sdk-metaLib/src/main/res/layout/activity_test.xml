@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_addr_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/server_url"
+        android:inputType="text"
+        android:lines="1"
+        android:padding="8dp"
+        android:textSize="21sp" />
+
+    <Button
+        android:id="@+id/bt_addr_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@android:string/ok" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:padding="8dp">
+
+        <Switch
+            android:id="@+id/switchVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:thumbTint="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/switchVersion"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/current_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+

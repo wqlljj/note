@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cloudminds.hc.metalib">
+
+    <!-- USB权限 -->
+    <uses-permission android:name="com.android.example.USB_PERMISSION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECOVERY" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name=".CMUpdaterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+
+        <service
+            android:name=".features.network.checking.UpdateCheckingSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".features.installation.InstallationSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".features.network.downloading.PackageDownloadService"
+            android:exported="false" />
+        <service
+            android:name=".features.network.checking.UpdateCheckingService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".features.scheduler.BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".features.scheduler.NotificationFeedbackReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.cloudminds.updater.remindmelater.download" />
+                <action android:name="com.cloudminds.updater.ignore.download" />
+                <action android:name="com.cloudminds.updater.remindmelater.install" />
+                <action android:name="com.cloudminds.updater.install" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".features.version.VersionDetailActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".features.installation.InstallationActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogActivity" />
+
+        <receiver android:name=".features.test.SecretCodeReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE" />
+
+                <data
+                    android:host="68227"
+                    android:scheme="android_secret_code" />
+                <data
+                    android:host="3682"
+                    android:scheme="android_secret_code" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".features.test.TestActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".features.version.VersionListActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".features.installation.PackageInstallService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".broadcast.MetaWakeUpReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".MainActivity"></activity>
+    </application>
+
+</manifest>

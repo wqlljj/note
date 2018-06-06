@@ -1,0 +1,41 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.cloudminds.hc.hariservice">
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature android:name="android.hardware.audio.low_latency"/>
+    <uses-permission android:name="com.android.example.USB_PERMISSION"/>
+    <!--唤醒锁权限-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+        <service android:name="com.cloudminds.hc.hariservice.service.HariService" >
+        </service>
+        <receiver android:name=".manager.CallManager$SettingRecceiver">
+            <intent-filter>
+                <action android:name="com.cloudminds.manager.CallManager.videoSettingReceiver"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="org.eclipse.paho.android.service.MqttService">
+        </service>
+        <!--TalkingData-->
+        <meta-data android:name="TD_APP_ID" android:value="22BE966648B34933A300B138C0E1B745" />
+        <meta-data android:name="TD_CHANNEL_ID" android:value="meta" />
+    </application>
+
+</manifest>

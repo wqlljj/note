@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/set"
+        android:title="@string/param_setting"/>
+    <item android:id="@+id/hub_family_help"
+        android:title="@string/hub_family_assistance"/>
+    <!--<item android:id="@+id/romUpdate"-->
+        <!--android:title="@string/rom_update"/> -->
+</menu>

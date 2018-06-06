@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="PropDialog_Text">
+        <item name="android:textSize">@dimen/dialog_text_click</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dialog_text_margin</item>
+        <item name="android:layout_marginBottom">@dimen/dialog_text_margin</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="PropDialog_Text_Click">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/dialog_text_click_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/dialog_text_click</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Activate_FragmentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingLeft">@dimen/activate_fragmentlayout_padding</item>
+        <item name="android:layout_margin">@dimen/activate_fragmentlayout_padding</item>
+    </style>
+
+    <style name="Activate_TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/activate_editetext_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="Activate_EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">@dimen/activate_editetext_hint_padding_left</item>
+    </style>
+
+    <style name="TakePhoto_Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Update_Password_EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">@dimen/update_password_padding_left</item>
+    </style>
+
+</resources>

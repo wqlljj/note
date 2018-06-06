@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:clipChildren="false"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:context="com.cloudminds.updater.CMUpdaterActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/title_system_update"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_more_vert_white_16dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/main_circle_diameter"
+        android:layout_height="@dimen/main_circle_diameter"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/main_circle_margin"
+        android:layout_marginTop="@dimen/main_circle_margin"
+        android:clipChildren="false"
+        android:clipToPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="@dimen/main_circle_diameter"
+                android:layout_height="@dimen/main_circle_diameter"
+                android:background="@drawable/circle_white"
+                android:gravity="center" />
+
+            <View
+                android:id="@+id/progressDot"
+                android:layout_width="@dimen/main_circle_view"
+                android:layout_height="@dimen/main_circle_view"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/main_circle_view_margin"
+                android:background="@drawable/progress_dot"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/systemInfoStatusLayout"
+            android:layout_width="@dimen/main_circle_diameter"
+            android:layout_height="@dimen/main_circle_diameter"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/version_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/state_action_none"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/newVersionId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/version_status"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/version_unknown"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/main_circle_margin"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/checkTimeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="8dp"
+            android:visibility="gone">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_checked_time"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/lastCheckTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/check_time_never"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray" />
+
+        <RelativeLayout
+            android:id="@+id/currentVersionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/arrow_version_more"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/arrow_right" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/arrow_version_more"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/header_current_version"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/current_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/version_unknown"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/versionListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/arrow_right" />
+
+
+                <TextView
+                    android:id="@+id/versionListHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/text_version_list"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/darker_gray" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
+
+            <Button
+                android:id="@+id/button_check_now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginStart="64dp"
+                android:background="@drawable/button_check_update_ripple_bg"
+                android:clickable="true"
+                android:text="@string/button_check_now"
+                android:textColor="@color/colorPrimary" />
+        </RelativeLayout>
+    </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:id="@+id/welcome_layout"
+        android:focusable="true"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/welcome"
+            android:text="欢迎"
+            android:layout_toLeftOf="@id/center"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/use"
+            android:text="使用"
+            android:layout_toRightOf="@id/center"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/meta"
+            android:text="魅闼"
+            android:layout_below="@id/use"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            />
+    </RelativeLayout>
+</RelativeLayout>

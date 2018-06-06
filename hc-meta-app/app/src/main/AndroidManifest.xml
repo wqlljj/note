@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cloudminds.meta"
+    android:versionCode="4"
+    android:versionName="1.0 d44471b-180330">
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+
+
+
+    <application
+        android:name=".application.MetaApplication"
+        android:allowBackup="true"
+        android:configChanges="keyboardHidden|keyboard"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="9417717" />
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="UriAkx385VgpQ2geNedKxV6I" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="ddb5f67e5624fdce73c347fddf9745f1" />
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="15121923ad3f767d33bd83332f0aadab" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name=".activity.ActivateActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!-- android:launchMode="singleTask" -->
+        <activity android:name="ai.kitt.snowboy.Demo" android:label="@string/app_name" android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.HubActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- <activity android:name=".activity.ActivateActivity" -->
+        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
+        <!-- android:screenOrientation="portrait"/> -->
+
+        <activity
+            android:name=".activity.FamilyManageActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.FamilyHelpActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.PersonalInformationActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.EquipmentInformationActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.UpdatePasswordActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.RetrievePasswordActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <service
+            android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false" />
+        <service
+            android:name=".service.HubService"
+            android:stopWithTask="false" />
+        <!-- <service android:name="com.cloudminds.hari.service.HariService" /> -->
+
+        <service
+            android:name=".service.asr.AsrService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <!-- <provider -->
+        <!-- android:name="android.support.v4.content.FileProvider" -->
+        <!-- android:authorities="com.cloudminds.meta.provider" -->
+        <!-- android:exported="false" -->
+        <!-- android:grantUriPermissions="true"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+        <!-- android:resource="@xml/provider_paths" /> -->
+        <!-- </provider> -->
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.cloudminds.meta.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <!-- <receiver android:name=".broadcast.StartUpHubServiceBroadcast"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+        <activity
+            android:name=".activity.BaseActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <receiver
+            android:name=".broadcast.SelfStartUpBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+
+                <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+                <action android:name="android.intent.action.DOUBLE_TAP_HOME" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.InternetBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".activity.AuxiliaryFunctionActivity"
+            android:configChanges="keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <receiver
+            android:name=".broadcast.VPNStateReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VPN_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.KillSelfService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".broadcast.LocaleChangeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.SysShutDownReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.PhoneReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <receiver
+            android:name=".broadcast.BatteryReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.StandardActivity"></activity>
+    </application>
+
+</manifest>

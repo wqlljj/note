@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/welcome_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/welcome_margin"
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/welcome_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/welcome_margin"
+        android:layout_marginBottom="@dimen/welcome_margin"
+        android:layout_margin="@dimen/welcome_margin">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/welcome_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_skip"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/welcome_margin"
+        android:layout_marginTop="@dimen/welcome_margin"
+        android:padding="@dimen/welcome_btn_padding"
+        android:textSize="@dimen/welcome_btn_text_size"
+        android:paddingLeft="@dimen/welcome_btn_padding"
+        android:paddingRight="@dimen/welcome_btn_padding"/>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 25
+        versionCode 59281408
+        versionName "0.2.0"
+        multiDexEnabled true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to checkforerrorsinrelease builds,
+        // but continue the build even whenerrorsarefound:
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+}
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_text">14sp</dimen>
+    <dimen name="dialog_text_margin">50dp</dimen>
+    <dimen name="dialog_text_click">16sp</dimen>
+    <dimen name="dialog_text_click_padding">15dp</dimen>
+    <dimen name="welcome_margin">20dp</dimen>
+    <dimen name="welcome_btn_padding">10dp</dimen>
+    <dimen name="welcome_btn_text_size">16sp</dimen>
+    <dimen name="activate_editetext_size">18sp</dimen>
+    <dimen name="activate_fragmentlayout_padding">10dp</dimen>
+    <dimen name="activate_editetext_hint_padding_left">100dp</dimen>
+    <dimen name="activate_margin">10dp</dimen>
+    <dimen name="activate_padding">10dp</dimen>
+    <dimen name="upgrade_margin">10dp</dimen>
+    <dimen name="update_password_padding_left">20dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Toolbar Padding -->
+    <dimen name="tool_bar_top_padding">0dp</dimen>
+    <dimen name="tool_bar_top_height">60dp</dimen>
+
+    <dimen name="chat_llt_magin_max">40dp</dimen>
+    <dimen name="chat_llt_magin_min">10dp</dimen>
+    <dimen name="chat_tv_date_textSize">10sp</dimen>
+    <dimen name="chat_tv_content_textSize">18sp</dimen>
+
+    <integer name="hariService_videoWidth">2</integer>
+    <integer name="hariService_videoHeight">2</integer>
+</resources>

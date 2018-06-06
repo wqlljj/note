@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        >
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/version"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/version"
+                />
+        </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+                  android:layout_marginBottom="10dp"
+    >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="4"
+                  android:text="@string/service_port"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:textSize="18sp"
+        />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:textSize="18sp"
+                  android:textColor="@color/black"
+                  android:id="@+id/server_port"
+        />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+                  android:layout_marginBottom="10dp"
+    >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="4"
+                  android:text="@string/low_Pawer"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+        />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                  android:hint="0-100"
+                  android:inputType="number"
+                  android:textColorHint="@color/vi_line_color"
+                  android:textColor="@color/black"
+                  android:id="@+id/low_Pawer"
+            android:enabled="false"
+        />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+                  android:layout_marginBottom="10dp"
+    >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="4"
+                  android:text="@string/low_Health"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+        />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:gravity="center_vertical"
+                  android:layout_gravity="center_vertical"
+                  android:textSize="18sp"
+                  android:hint="0-100"
+                  android:inputType="number"
+                  android:textColorHint="@color/vi_line_color"
+                  android:textColor="@color/black"
+                  android:id="@+id/low_Health"
+        />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/hariService_address"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:id="@+id/hariServer_ip"
+            />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/hariService_port"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:id="@+id/hariServer_port"
+            />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/hariService_videoWidth"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="@integer/hariService_videoWidth"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:id="@+id/hariServer_videoWidth"
+            />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/hariService_videoHeight"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="@integer/hariService_videoHeight"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:id="@+id/hariServer_videoHeight"
+            />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/hariService_customer"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            />
+        <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:id="@+id/hariServer_customer"
+            />
+    </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/hariService_username"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/hariService_username"
+                />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/hariService_password"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/hariService_password"
+                />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/hariService_robot"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/hariService_robot"
+                />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/hariService_tenantid"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/hariService_tenantId"
+                />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/hariService_bitrate"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <EditText android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/hariService_bitrate"
+                />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/hariService_framerate"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <!--<EditText android:layout_width="0dp" android:layout_height="wrap_content"-->
+                <!--android:layout_weight="5"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:textSize="18sp"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:id="@+id/hariService_framerate"-->
+                <!--/>-->
+            <Spinner
+                android:id="@+id/hariService_framerate"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:entries="@array/frame_rates"
+                android:layout_height="wrap_content">
+            </Spinner>
+        </LinearLayout>
+        <Button android:layout_width="wrap_content" android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/save"
+            android:id="@+id/save"
+            android:layout_marginBottom="10dp"
+            />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/gps"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <ToggleButton
+                android:id="@+id/status_gps"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/btn_switch_selector"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:textOff=""
+                android:textOn=""
+                android:scaleX="0.4"
+                android:scaleY="0.4"/>
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
+            >
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/start_recognition"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                />
+            <ToggleButton
+                android:id="@+id/btn_start_recognition"
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/btn_switch_selector"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:textOff=""
+                android:textOn=""
+                android:scaleX="0.4"
+                android:scaleY="0.4"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

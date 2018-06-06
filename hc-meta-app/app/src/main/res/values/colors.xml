@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="hub_usb_unconn">#ff0000</color>
+    <color name="hub_call">#000000</color>
+    <color name="family_title">#E0E0E0</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#000000</color>
+    <color name="vi_line_color">#c0c0c0</color>
+    <color name="trans">#00000000</color>
+    <color name="common_text_color">#747474</color>
+    <color name="white">#FFFFFF</color>
+    <color name="drawer_gray">#F1F1F1</color>
+</resources>

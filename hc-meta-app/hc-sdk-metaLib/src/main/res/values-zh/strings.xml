@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">META</string>
+    <string name="title_system_update">系统更新</string>
+    <string name="header_current_version">当前版本</string>
+    <string name="text_version_list">版本列表</string>
+    <string name="button_check_now">检查更新</string>
+    <string name="button_download_now">确定下载</string>
+    <string name="button_download">下载</string>
+    <string name="button_install_now">安装</string>
+    <string name="button_cancel">取消</string>
+    <string name="version_unknown">未知</string>
+
+    <string name="state_action_none">您的系统是最新版本</string>
+    <string name="state_action_checking">正在检查更新&#8230;</string>
+    <string name="state_action_checked_failure">检查更新失败</string>
+    <string name="state_action_available">发现新版本</string>
+    <string name="state_action_downloaded">更新包下载完成</string>
+    <string name="state_action_download_failed">更新包下载失败</string>
+    <string name="state_action_download_canceled">下载取消</string>
+    <string name="state_action_downloading">正在下载…</string>
+    <string name="notification_progress">正在下载:%d%%</string>
+    <string name="last_checked_time">上次检查更新时间</string>
+    <string name="posted_now">刚刚</string>
+    <string name="check_time_never">Never</string>
+    <plurals name="num_minutes_ago">
+        <item quantity="one">%d" 分钟前"</item>
+        <item quantity="other">%d" 分钟前"</item>
+    </plurals>
+    <string name="toast_1mins_check">离上次检查还不到一分钟，请稍后再试</string>
+    <string name="button_install">安装</string>
+    <string name="dialog_title_install">现在安装吗?</string>
+    <string name="dialog_title_pre_install">即将安装系统更新</string>
+    <plurals name="dialog_msg_pre_install">
+        <item quantity="one">系统更新将在%d秒后安装</item>
+        <item quantity="other">系统更新将在%d秒后安装</item>
+    </plurals>
+    <string name="dialog_title_check_md5">正在检查安装包…</string>
+    <string name="dialog_title_md5_checked">检查完毕</string>
+    <string name="dialog_msg_md5_checked">正在准备安装…</string>
+    <string name="dialog_msg_install">请保证您的设备有足够的电量</string>
+    <string name="toast_text_battery">电量过低，请先为您的设备充电</string>
+    <string name="toast_text_package_not_found">找不到安装包</string>
+    <string name="toast_text_package_verify_failed">安装包验证失败</string>
+    <string name="toast_text_no_available_connection">没有可用的网络连接</string>
+    <string name="action_text_remind">等下提醒我</string>
+    <string name="action_text_ignore">忽略</string>
+    <string name="action_text_download">下载</string>
+    <string name="label_version">版本号</string>
+    <string name="label_package_size">大小</string>
+    <string name="label_release_note">新版变化</string>
+    <string name="text_empty_description">修复若干Bug</string>
+    <string name="alert_roaming_messgae">您目前处于国际漫游状态，已阻止安装包下载</string>
+    <string name="dialog_title_warning">警告</string>
+    <string name="dialog_msg_mobile_data_warning">安装包大于100M, 请使用WIFI下载</string>
+    <string name="dialog_button_force_download">仍然下载</string>
+    <string name="menu_text_auto_download_wifi">WIFI自动下载</string>
+    <string name="server_url">Server URL</string>
+    <string name="host_change_to" formatted="false">OTA 地址改变为 %s</string>
+    <string name="host_can_not_empty">地址不能为空</string>
+    <string name="show_version_list">显示版本列表</string>
+    <string name="do_not_show_version_list">不显示版本列表</string>
+    <string name="title_set_current_version">设置当前版本</string>
+    <string name="item_version_formal">正式版</string>
+    <string name="item_version_test">测试版</string>
+    <string name="download_package_type1">差分包</string>
+    <string name="download_package_type2">完整包</string>
+    <string name="text_version_status_latest">最新版本</string>
+    <string name="text_version_stetus_recent">以往版本</string>
+    <string name="text_version_stetus_current">当前版本</string>
+    <string name="toast_wait_downloading">正在下载中，请稍后再试</string>
+    <string name="dialog_text_delete_pkg">确认要删除吗？</string>
+    <string name="dialog_btn_delete">删除</string>
+    <string name="state_error_disk_space">磁盘空间不足</string>
+    <string name="state_error_disk_space_check">无法创建下载目录</string>
+
+    <string name="NAVI_CMD_FORWARD_TIPS">前进</string>
+    <string name="NAVI_CMD_FORWARD_DISTANCE_TIPS_PREFIX">前方 %1$s 米无障碍</string>
+    <string name="NAVI_CMD_TERMINATE_TIPS">停止导航</string>
+    <string name="NAVI_CMD_BACKWARD_TIPS">停</string>
+    <string name="NAVI_CMD_PAD_LEFT_TIPS">左跨一步</string>
+    <string name="NAVI_CMD_PAD_RIGHT_TIPS">右跨一步</string>
+    <string name="NAVI_CMD_TURN_RIGHT_TIPS">右转</string>
+    <string name="NAVI_CMD_TURN_LEFT_TIPS">左转</string>
+    <string name="NAVI_CMD_DEGREE_TIPS">度</string>
+    <string name="NAVI_CMD_TURN_BACK_TIPS">向后转</string>
+    <string name="NAVI_CMD_TURN_LEFT_FORWARD_TIPS">向左前方转</string>
+    <string name="NAVI_CMD_TURN_LEFT_BACK_TIPS">向左后方转</string>
+    <string name="NAVI_CMD_TURN_RIGHT_FORWARD_TIPS">向右前方转</string>
+    <string name="NAVI_CMD_TURN_RIGHT_BACK_TIPS">向右后方转</string>
+    <string name="helmet_power_low">头盔电量过低</string>
+    <string name="battery_serious">头盔电池老化严重</string>
+</resources>

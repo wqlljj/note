@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activate_result_info"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:textColor="@android:color/holo_red_light"
+        android:gravity="center"
+        android:text="@string/usb_status"
+        android:textSize="18sp"
+        android:layout_margin="@dimen/activate_margin"/>
+
+    <FrameLayout
+        style="@style/Activate_FragmentLayout"
+        android:layout_margin="@dimen/activate_fragmentlayout_padding">
+        <TextView
+            style="@style/Activate_TextView"
+            android:text="@string/activate_username"
+            />
+        <com.cloudminds.meta.view.EditTextForNumberWithDel
+            android:id="@+id/activate_username"
+            style="@style/Activate_EditText"
+            android:inputType="number"
+            android:maxLength="13"
+            android:hint="@string/activate_input_phone_number"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        style="@style/Activate_FragmentLayout">
+        <TextView
+            style="@style/Activate_TextView"
+            android:text="@string/activate_password"
+            />
+        <com.cloudminds.meta.view.EditTextWithDel
+            android:id="@+id/activate_password"
+            style="@style/Activate_EditText"
+            android:hint="@string/activate_input_password"
+            android:inputType="textPassword"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activate_margin"
+        >
+
+        <Button
+            android:id="@+id/activate_btn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/activate_btn_text"
+            />
+
+    </FrameLayout>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activate_lose_password"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:id="@+id/forget_password"
+        android:padding="@dimen/activate_padding"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip_activation"
+        android:id="@+id/skip_activation"
+        android:clickable="true"
+        android:padding="@dimen/activate_padding"/>
+</RelativeLayout>
+</LinearLayout>

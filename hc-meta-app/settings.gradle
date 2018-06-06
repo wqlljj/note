@@ -1,0 +1,1 @@
+include ':app', ':hariservice', ':hc-sdk-metaLib', ':hc-sdk-cloudService', ':gallerypick', ':logful', ':openCVLibrary310'

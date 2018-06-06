@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp"
+    android:paddingTop="4dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:text="@string/menu_text_auto_download_wifi"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/auto_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:buttonTint="@color/colorPrimary"
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp" />
+</LinearLayout>

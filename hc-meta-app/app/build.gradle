@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+greendao {
+    schemaVersion 5
+    daoPackage 'com.cloudminds.meta.greendao'
+    targetGenDir 'src/main/java'
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.cloudminds.meta"
+        minSdkVersion 23
+        targetSdkVersion 25
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi",  "x86"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    productFlavors {
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to checkforerrorsinrelease builds,
+        // but continue the build even whenerrorsarefound:
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/VoiceRecognition-2.1.20.jar')
+    compile files('libs/AMap_Location_V3.3.0_20170118.jar')
+    compile files('libs/AMap_Search_V4.0.0_20170111.jar')
+    compile project(':hariservice')
+    compile files('libs/bugly_crash_release.jar')
+    compile project(':hc-sdk-metaLib')
+    compile files('libs/AMap3DMap_5.2.0_AMapNavi_5.1.0_20170602.jar')
+    compile project(':hc-sdk-cloudService')
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'pub.devrel:easypermissions:0.1.5'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'org.greenrobot:greendao:3.1.0'
+    compile 'org.greenrobot:greendao-generator:3.0.0'
+    compile 'io.reactivex:rxjava:1.3.3'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'me.iwf.photopicker:PhotoPicker:0.9.12@aar'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    androidTestCompile 'com.android.support:support-annotations:22.2.1'
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:22.1.0'
+    }
+    compile 'com.android.support:design:25+'
+    compile project(':gallerypick')
+    compile project(':openCVLibrary310')
+}

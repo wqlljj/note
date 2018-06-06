@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">META</string>
+    <string name="title_system_update">System Upgrade</string>
+    <string name="header_current_version">Current version</string>
+    <string name="text_version_list">Version List</string>
+    <string name="button_check_now">Check now</string>
+    <string name="button_download_now">Download now</string>
+    <string name="button_download">Download</string>
+    <string name="button_install_now">Install now</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="version_unknown">Unknown</string>
+
+    <string name="state_action_none">Your system is up to date</string>
+    <string name="state_action_checking">Checking for updates&#8230;</string>
+    <string name="state_action_checked_failure">Check the update failure</string>
+    <string name="state_action_available">Update ready to download</string>
+    <string name="state_action_downloaded">Update downloaded</string>
+    <string name="state_action_download_failed">Downloading failed</string>
+    <string name="state_action_download_canceled">Downloading canceled</string>
+    <string name="state_action_downloading">Downloading&#8230;</string>
+    <string name="notification_progress">Downloading:%d%%</string>
+    <string name="last_checked_time">Last checked time</string>
+    <string name="posted_now">Now</string>
+    <string name="check_time_never">Never</string>
+    <plurals name="num_minutes_ago">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d mins</item>
+    </plurals>
+    <string name="toast_1mins_check">Less than a minute before the last check. Please try again later</string>
+    <string name="button_install">Install</string>
+    <string name="dialog_title_install">Upgrade now?</string>
+    <string name="dialog_title_pre_install">System updates will be applied shortly</string>
+    <plurals name="dialog_msg_pre_install">
+        <item quantity="one">System updates will be applied in %d second</item>
+        <item quantity="other">System updates will be applied in %d seconds</item>
+    </plurals>
+    <string name="dialog_title_check_md5">Package Verifying…</string>
+    <string name="dialog_title_md5_checked">Package verified</string>
+    <string name="dialog_msg_md5_checked">Preparing to install…</string>
+    <string name="dialog_msg_install">Please make sure your device has enough battery</string>
+    <string name="toast_text_battery">Low battery, please charge your device first</string>
+    <string name="toast_text_package_not_found">Package not found</string>
+    <string name="toast_text_package_verify_failed">Package verify failed</string>
+    <string name="toast_text_no_available_connection">No available connection</string>
+    <string name="action_text_remind">Remind me later</string>
+    <string name="action_text_ignore">Ignore</string>
+    <string name="action_text_download">Download</string>
+    <string name="label_version">Version</string>
+    <string name="label_package_size">Package Size</string>
+    <string name="label_release_note">Release Note</string>
+    <string name="text_empty_description">Bug fixes</string>
+    <string name="alert_roaming_messgae">The phone is in roaming. Package download is forbidden.</string>
+    <string name="dialog_title_warning">Warning</string>
+    <string name="dialog_msg_mobile_data_warning">Package size is more than 100M, please switch to wifi and try again</string>
+    <string name="dialog_button_force_download">Still Download</string>
+    <string name="menu_text_auto_download_wifi">Auto download on WIFI</string>
+    <string name="server_url">Server URL</string>
+
+    <string name="host_change_to" formatted="false">change ota server to %s</string>
+    <string name="host_can_not_empty">ota server can not be empty</string>
+    <string name="show_version_list">Version List Is Showing</string>
+    <string name="do_not_show_version_list">Version List Not Showing</string>
+    <string name="title_set_current_version">Set current version</string>
+    <string name="item_version_formal">formal version</string>
+    <string name="item_version_test">test version</string>
+    <string name="download_package_type1">Incremental package</string>
+    <string name="download_package_type2">Full package</string>
+    <string name="text_version_status_latest">Latest Version</string>
+    <string name="text_version_stetus_recent">Recent Version</string>
+    <string name="text_version_stetus_current">Current Version</string>
+    <string name="toast_wait_downloading">Downloading, please try again later</string>
+    <string name="dialog_text_delete_pkg">Delete this package?</string>
+    <string name="dialog_btn_delete">Delete</string>
+    <string name="state_error_disk_space">No enough space</string>
+    <string name="state_error_disk_space_check">Cannot create downloading folder</string>
+
+    <string name="NAVI_CMD_FORWARD_TIPS">go straight</string>
+    <string name="NAVI_CMD_TERMINATE_TIPS">Navigation stopped</string>
+    <string name="NAVI_CMD_BACKWARD_TIPS">stop</string>
+    <string name="NAVI_CMD_PAD_LEFT_TIPS">one step left</string>
+    <string name="NAVI_CMD_PAD_RIGHT_TIPS">one step right</string>
+    <string name="NAVI_CMD_TURN_RIGHT_TIPS">Turn right</string>
+    <string name="NAVI_CMD_TURN_LEFT_TIPS">Turn left</string>
+    <string name="NAVI_CMD_DEGREE_TIPS">degree</string>
+    <string name="NAVI_CMD_FORWARD_DISTANCE_TIPS_PREFIX">%1$s m ahead safe</string>
+    <string name="NAVI_CMD_TURN_BACK_TIPS">Turn back</string>
+    <string name="NAVI_CMD_TURN_LEFT_FORWARD_TIPS">Turn left forwards</string>
+    <string name="NAVI_CMD_TURN_LEFT_BACK_TIPS">Turn left backwards</string>
+    <string name="NAVI_CMD_TURN_RIGHT_FORWARD_TIPS">Turn right forwards</string>
+    <string name="NAVI_CMD_TURN_RIGHT_BACK_TIPS">Turn right backwards</string>
+</resources>
