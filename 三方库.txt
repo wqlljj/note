@@ -9,3 +9,5 @@ https://www.jianshu.com/p/38f0de2c9300
 
 数据库：Room
 https://www.jianshu.com/p/cfde3535233d
+
+android 长连接：MQTT,XMPP
