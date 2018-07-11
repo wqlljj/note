@@ -1,0 +1,19 @@
+1.设置定义的预加载颜色：<item name="android:windowBackground">@color/preload_color</item>
+2.耗时操作时，设置预加载背景色
+在onresume中GONE掉预加载背景
+<View
+            android:id="@+id/preloading_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#2f2a4e" />
+
+<style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+        <item name="android:windowBackground">@color/preload_color</item>
+
+    </style>

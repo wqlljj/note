@@ -1,0 +1,24 @@
+一、生成arr包：
+Module 配置为 library，在 gradle 文件中如下：
+输出 aar ： apply plugin: ‘com.android.library’； 在moudule的build->utputs->aar目录下就能找到生成的arr文件
+其它项目引入
+Gradle 的一些基本依赖配置方式如下：
+compile fileTree(dir: ‘xxx’, include: [‘.jar’, “.xxx”])： 将某个目录下 所有符合扩展名的文件作为依赖；
+compile ‘com.xx.xx:ProjectName:Version’： 配置Maven` 库作为依赖；在 Maven 库中心 可以搜索自己想用的库进行依赖；
+compile project(‘:AnotherModule’)： 配置另一个 Module 作为本 Module 的依赖，被依赖的 Module 必须被导入到当前工程中；
+compile files(‘xxx.jar’)： 配置某个 jar 包作为依赖。
+
+二、导入arr包：
+方法： 将arr放入libs目录下 在app module build.gradle 添加
+
+
+ repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+compile(name: 'facebook-android-sdk-4.11.0', ext: 'aar')
+compile 没有扩展名的 且记 和导入jar包的区别，导入jar包是有扩展名的
+
+
+引入成功可在build->intermediates->exploded-arr文件夹下看到。

@@ -1,0 +1,86 @@
+创建基类BaseActivity：
+public class BaseActivity extends AppCompatActivity {
+    protected void openActivity(Intent intent) {
+        startActivity(intent);
+        overridePendingTransition(R.anim.activity_create_enter, R.anim.activity_create_exit);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        View viewById = findViewById(R.id.preloading_bg);
+        if(viewById!=null&&viewById.getVisibility()!=View.GONE){
+            viewById.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.activity_back_enter, R.anim.activity_back_exit);
+    }
+}
+
+创建新界面两个动画：
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator">
+
+    <scale
+        android:toXScale="1.0"
+        android:toYScale="1.0"
+        android:duration="@android:integer/config_shortAnimTime"
+        android:fromXScale=".8"
+        android:fromYScale=".8"
+        android:pivotX="50%p"
+        android:pivotY="50%p" />
+</set>
+
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:zAdjustment="top">
+
+    <scale
+        android:duration="@android:integer/config_shortAnimTime"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%p"
+        android:pivotY="50%p"
+        android:toXScale="2"
+        android:toYScale="2" />
+
+    <alpha
+        android:duration="@android:integer/config_shortAnimTime"
+        android:fromAlpha="0.5"
+        android:toAlpha="0" />
+</set>
+
+返回上一个界面的两个动画：
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator">
+    <scale
+        android:duration="@android:integer/config_shortAnimTime"
+        android:fromXScale="2.0"
+        android:fromYScale="2.0"
+        android:pivotX="50%p"
+        android:pivotY="50%p"
+        android:toXScale="1.0"
+        android:toYScale="1.0" />
+</set>
+
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:zAdjustment="top">
+    <scale
+        android:duration="@android:integer/config_shortAnimTime"
+       android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%p"
+        android:pivotY="50%p"
+        android:toXScale=".5"
+        android:toYScale=".5" />
+
+    <alpha
+        android:duration="@android:integer/config_shortAnimTime"
+        android:fromAlpha="1.0"
+        android:toAlpha="0" />
+</set>
