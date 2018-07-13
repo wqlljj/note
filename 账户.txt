@@ -6,3 +6,4 @@ Bugly :3042189479  Cl...1688
 
 
 代码管理账户：qi.wang  12345678
+jira:qi.wang.x  wq...106
