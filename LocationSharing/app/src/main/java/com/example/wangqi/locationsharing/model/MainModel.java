@@ -4,7 +4,7 @@ package com.example.wangqi.locationsharing.model;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.wangqi.locationsharing.model.baidumap.BaiDuClient;
+import com.baidumap.BaiDuClient;
 import com.example.wangqi.locationsharing.model.mqtt.MQTTService;
 
 /**

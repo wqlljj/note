@@ -38,17 +38,18 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="vLAxp4escnWUhNMph4jUD16ofeiCtmMZ" >
         </meta-data>
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".model.baidumap.DemoGuideActivity"
+        <activity android:name="com.baidumap.DemoGuideActivity"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".model.baidumap.DemoNaviSettingActivity"
+        <activity android:name="com.baidumap.DemoNaviSettingActivity"
             android:screenOrientation="portrait"
             />
         <!--<service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">-->

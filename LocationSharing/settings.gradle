@@ -1,1 +1,1 @@
-include ':app', ':onsdk_all', ':NaviTts'
+include ':app', ':baidumap'
