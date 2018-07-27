@@ -28,8 +28,12 @@ public class MainActivity extends AppCompatActivity {
     public void click(View view){
         switch (view.getId()){
             case R.id.screenUtil:
-                Toast.makeText(this, "跳转screenUtil", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "跳转屏幕及系统信息获取", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this,ScreenUtilActivity.class));
+                break;
+            case R.id.fitScreen:
+                Toast.makeText(this, "跳转屏幕适配", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,FitScreenActivity.class));
                 break;
         }
     }

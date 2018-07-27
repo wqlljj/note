@@ -36,15 +36,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="scale"
-                android:inputType="number"
+                android:hint="dp-px"
+                android:inputType="numberDecimal"
                 android:text="@={ScreenUtil.floatToString(ScreenUtil.scale)}" />
-
+            android:inputType="numberDecimal"
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="fontScale"
+                android:hint="px-sp"
+                android:inputType="numberDecimal"
                 android:text="@={ScreenUtil.floatToString(ScreenUtil.fontScale)}" />
         </LinearLayout>
 

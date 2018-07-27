@@ -35,6 +35,8 @@ public class ScreenUtilActivity extends AppCompatActivity {
         data.add("系统语言:  "+ SystemUtil.Language());
         data.add("屏幕的高:  "+ SystemUtil.Height() + "");
         data.add("屏幕的宽： "+ SystemUtil.Width() + "");
+        data.add("屏幕density： "+ SystemUtil.density() + "");
+        data.add("屏幕scaledDensity： "+ SystemUtil.scaledDensity() + "");
         data.add("系统版本名:  "+ Build.VERSION.RELEASE);
         data.add("系统版本号:  "+ Build.VERSION.SDK_INT + "");
         data.add("系统型号:  "+ Build.MODEL);

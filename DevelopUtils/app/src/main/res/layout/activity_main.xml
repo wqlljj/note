@@ -15,8 +15,13 @@
             android:id="@+id/screenUtil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="screenUtil"
+            android:text="屏幕及系统信息"
             android:onClick="@{onClick::click}"/>
-
+        <Button
+            android:id="@+id/fitScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="屏幕适配"
+            android:onClick="@{onClick::click}"/>
     </LinearLayout>
 </layout>

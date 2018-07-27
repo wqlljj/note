@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.example.wangqi.developutils.view.OnClickListener" alias="OnClickListener"/>
+        <variable
+            name="selectXFile"
+            type="OnClickListener"/>
+        <variable
+            name="selectYFile"
+            type="OnClickListener"/>
+        <variable
+            name="startRunner"
+            type="OnClickListener"/>
+        <variable
+            name="xFilePath"
+            type="String"/>
+        <variable
+            name="yFilePath"
+            type="String"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/linear1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@{xFilePath}"
+                android:hint="dimens_x"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="选择X轴文件"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="@{()->selectXFile.onClick()}"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:layout_below="@+id/linear1"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/linear2">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@{yFilePath}"
+                android:hint="dimens_y"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="选择Y轴文件"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="@{()->selectYFile.onClick()}"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="开始生成"
+            android:gravity="center"
+            android:layout_below="@+id/linear2"
+            android:layout_marginTop="10px"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="@{()->startRunner.onClick()}"
+            />
+
+    </RelativeLayout>
+
+</layout>
