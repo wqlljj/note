@@ -33,10 +33,15 @@ public class ScreenUtilActivity extends AppCompatActivity {
         data.add("手机的mac地址:  "+ SystemUtil.MAC());
         data.add("系统国家:  "+ SystemUtil.Country());
         data.add("系统语言:  "+ SystemUtil.Language());
-        data.add("屏幕的高:  "+ SystemUtil.Height() + "");
-        data.add("屏幕的宽： "+ SystemUtil.Width() + "");
+        data.add("屏幕的高px:  "+ SystemUtil.Height() + "");
+        data.add("屏幕的宽px： "+ SystemUtil.Width() + "");
+        data.add("屏幕的高dp:  "+ ScreenUtil.px2dip(this,SystemUtil.Height()) + "");
+        data.add("屏幕的宽dp： "+ ScreenUtil.px2dip(this,SystemUtil.Width()) + "");
+        data.add("屏幕的高sp:  "+ ScreenUtil.px2sp(this,SystemUtil.Height()) + "");
+        data.add("屏幕的宽sp： "+ ScreenUtil.px2sp(this,SystemUtil.Width()) + "");
         data.add("屏幕density： "+ SystemUtil.density() + "");
         data.add("屏幕scaledDensity： "+ SystemUtil.scaledDensity() + "");
+        data.add("屏幕densityDpi： "+ SystemUtil.densityDpi(this) + "");
         data.add("系统版本名:  "+ Build.VERSION.RELEASE);
         data.add("系统版本号:  "+ Build.VERSION.SDK_INT + "");
         data.add("系统型号:  "+ Build.MODEL);

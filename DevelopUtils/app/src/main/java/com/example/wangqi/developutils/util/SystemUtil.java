@@ -1,5 +1,6 @@
 package com.example.wangqi.developutils.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -263,5 +264,11 @@ public class SystemUtil {
     }
     public static float scaledDensity() {
         return context.getResources().getDisplayMetrics().scaledDensity;
+    }
+
+    public static int densityDpi(Activity activity) {
+        DisplayMetrics metric = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
+        return metric.densityDpi;  // 屏幕密度DPI（120 / 160 / 240）
     }
 }

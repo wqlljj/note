@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.wangqi.developutils.R;
+import com.example.wangqi.developutils.bean.ScreenBean;
 import com.example.wangqi.developutils.databinding.ActivityFitScreenBinding;
 import com.example.wangqi.developutils.util.ScreenUtil;
 import com.example.wangqi.developutils.util.ToastOrLogUtil;
 import com.leon.lfilepickerlibrary.LFilePicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FitScreenActivity extends AppCompatActivity {
@@ -22,6 +24,9 @@ public class FitScreenActivity extends AppCompatActivity {
     private static final int REQUESTCODE_DIMENS_X = 1000;
     private static final int REQUESTCODE_DIMENS_Y = 1001;
     private String TAG ="FitScreenActivity";
+    private ScreenBean baseScreenBean;
+    private ArrayList<ScreenBean> screenBeens;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +36,19 @@ public class FitScreenActivity extends AppCompatActivity {
         viewDataBinding.setSelectXFile(selectXFile);
         viewDataBinding.setSelectYFile(selectYFile);
         viewDataBinding.setStartRunner(startRunner);
+        baseScreenBean = new ScreenBean(1400,2560,3.5f,3.5f);
+        screenBeens=new ArrayList<>();
+        screenBeens.add(new ScreenBean(1024,768,1f,1f));
+        screenBeens.add(new ScreenBean(1920,1200,1.5f,1.5f));
+        screenBeens.add(new ScreenBean(1920,1080,1f,1f));
+        screenBeens.add(new ScreenBean(2560,1400,2f,2f));
     }
     OnClickListener startRunner = new OnClickListener() {
         @Override
         public void onClick() {
-            Log.e(TAG, "onClick: "+viewDataBinding.getXFilePath()+"\n保存路径："+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() );
-//            ScreenUtil.gen(viewDataBinding.getXFilePath(),viewDataBinding.getYFilePath(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath());
+            Log.e(TAG, "onClick: "+viewDataBinding.getXFilePath()+"\n保存路径："+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/fitScreen" );
+            ScreenUtil.gen(viewDataBinding.getXFilePath(),viewDataBinding.getYFilePath(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/fitScreen"
+                    ,baseScreenBean,screenBeens);
         }
     };
 

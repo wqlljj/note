@@ -1,5 +1,7 @@
 package com.example.wangqi.developutils.bean;
 
+import android.util.Log;
+
 import com.example.wangqi.developutils.util.ScreenUtil;
 
 /**
@@ -15,6 +17,7 @@ public class ScreenBean {
     int height_sp;
     float density;
     float scaledDensity;
+    private String TAG = "ScreenBean";
 
     public ScreenBean(int width_px, int height_px, float density, float scaledDensity) {
         this.width_px = width_px;
@@ -29,6 +32,7 @@ public class ScreenBean {
         height_dp=ScreenUtil.px2dip(height_px,density);
         width_sp=ScreenUtil.px2sp(width_px,scaledDensity);
         height_sp=ScreenUtil.px2sp(height_px,scaledDensity);
+        Log.e(TAG, "init: "+toString() );
     }
 
     public int getWidth_px() {
@@ -58,14 +62,14 @@ public class ScreenBean {
     @Override
     public String toString() {
         return "ScreenBean{" +
-                "width_px=" + width_px +
-                ", height_px=" + height_px +
-                ", width_dp=" + width_dp +
-                ", height_dp=" + height_dp +
-                ", width_sp=" + width_sp +
-                ", height_sp=" + height_sp +
-                ", density=" + density +
-                ", scaledDensity=" + scaledDensity +
-                '}';
+                "\nwidth_px=" + width_px +
+                ",\nheight_px=" + height_px +
+                ", \nwidth_dp=" + width_dp +
+                ", \nheight_dp=" + height_dp +
+                ", \nwidth_sp=" + width_sp +
+                ", \nheight_sp=" + height_sp +
+                ", \ndensity=" + density +
+                ", \nscaledDensity=" + scaledDensity +
+                "\n}";
     }
 }

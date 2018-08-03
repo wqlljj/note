@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Created by wangqi on 2018/6/5.
@@ -24,44 +25,69 @@ public class ScreenUtil {
     public static float fontScale = -1;
     private static String TAG="ScreenUtil";
     private static String parentFileName ="values-%dx%d";
-    public static void gen(String dimen_x,String dimen_y,String savePath,ScreenBean baseScreen,ScreenBean[] screenBeans) {
-
+    public static void gen(String dimen_x, String dimen_y, String savePath, ScreenBean baseScreen, ArrayList<ScreenBean> screenBeans) {
+        Log.e(TAG, "gen: "+dimen_x+"\n"+dimen_y+"\n"+savePath+"\n"+baseScreen );
         File file = new File(dimen_x);
         BufferedReader reader = null;
-        StringBuilder[] dimen_xs=new StringBuilder[screenBeans.length];
-        for (int i = 0; i < screenBeans.length; i++) {
+        StringBuilder[] dimen_xs=new StringBuilder[screenBeans.size()];
+        for (int i = 0; i < screenBeans.size(); i++) {
             dimen_xs[i]= new StringBuilder();
+            dimen_xs[i].append("<!--").append(screenBeans.get(i).toString()).append("-->");
         }
 //        StringBuilder sw480 = new StringBuilder();
 //        StringBuilder sw600 = new StringBuilder();
 //        StringBuilder sw720 = new StringBuilder();
 //        StringBuilder sw800 = new StringBuilder();
 //        StringBuilder w820 = new StringBuilder();
-
-
         try {
             System.out.println("生成不同分辨率：");
             reader = new BufferedReader(new FileReader(file));
             String tempString;
             int line = 1;
             // 一次读入一行，直到读入null为文件结束
-
             while ((tempString = reader.readLine()) != null) {
-
                 if (tempString.contains("</dimen>")) {
                     //tempString = tempString.replaceAll(" ", "");
                     String start = tempString.substring(0, tempString.indexOf(">") + 1);
                     String end = tempString.substring(tempString.lastIndexOf("<") - 2);
                     int num = Integer.valueOf(tempString.substring(tempString.indexOf(">") + 1, tempString.indexOf("</dimen>") - 2));
-
-
+                    String type = tempString.substring(tempString.indexOf("</dimen>") - 2, tempString.lastIndexOf("<"));
+                    Log.e(TAG, "gen: "+tempString );
+                    switch (type){
+                        case "px":
+                            for (int i = 0; i < screenBeans.size(); i++) {
+                                int width_px = screenBeans.get(i).getWidth_px();
+                                Log.e(TAG, "gen: "+num+"*"+width_px+"/"+baseScreen.getWidth_px() );
+                                Log.e(TAG, width_px+"  gen: "+start+((int) Math.round(1.0*num*width_px/baseScreen.getWidth_px()))+end );
+                                dimen_xs[i].append(start).append((int) Math.round(1.0*num*width_px/baseScreen.getWidth_px())).append(end).append("\n");
+                            }
+                            break;
+                        case "dp":
+                            for (int i = 0; i < screenBeans.size(); i++) {
+                                int width_dp = screenBeans.get(i).getWidth_dp();
+                                Log.e(TAG, "gen: "+num+"*"+width_dp+"/"+baseScreen.getWidth_dp() );
+                                Log.e(TAG, width_dp+"  gen: "+start+((int) Math.round(1.0*num*width_dp/baseScreen.getWidth_dp()))+end );
+                                dimen_xs[i].append(start).append((int) Math.round(1.0*num*width_dp/baseScreen.getWidth_dp())).append(end).append("\n");
+                            }
+                            break;
+                        case "sp":
+                            for (int i = 0; i < screenBeans.size(); i++) {
+                                int width_sp = screenBeans.get(i).getWidth_sp();
+                                Log.e(TAG, "gen: "+num+"*"+width_sp+"/"+baseScreen.getWidth_sp() );
+                                Log.e(TAG, width_sp+ " gen: "+start+((int) Math.round(1.0*num*width_sp/baseScreen.getWidth_sp()))+end );
+                                dimen_xs[i].append(start).append((int) Math.round(1.0*num*width_sp/baseScreen.getWidth_sp())).append(end).append("\n");
+                            }
+                            break;
+                    }
 //                    sw480.append(start).append((int) Math.round(num * 0.6)).append(end).append("\n");
 //                    sw600.append(start).append((int) Math.round(num * 0.75)).append(end).append("\n");
 //                    sw720.append(start).append((int) Math.round(num * 0.9)).append(end).append("\n");
 //                    sw800.append(tempString).append("\n");
 //                    w820.append(tempString).append("\n");
-
                 } else {
+                    for (StringBuilder dimenX : dimen_xs) {
+                        dimenX.append(tempString).append("\n");
+                    }
 //                    sw480.append(tempString).append("\n");
 //                    sw600.append(tempString).append("\n");
 //                    sw720.append(tempString).append("\n");
@@ -71,21 +97,19 @@ public class ScreenUtil {
                 line++;
             }
             reader.close();
-//            System.out.println("<!--  sw480 -->");
-//            System.out.println(sw480);
-//            System.out.println("<!--  sw600 -->");
-//            System.out.println(sw600);
-//
-//            System.out.println("<!--  sw720 -->");
-//            System.out.println(sw720);
-//            System.out.println("<!--  sw800 -->");
-//            System.out.println(sw800);
-
-            String sw480file = savePath+"/values-sw480dp-land/dimens.xml";
-            String sw600file = savePath+"/values-sw600dp-land/dimens.xml";
-            String sw720file = savePath+"/values-sw720dp-land/dimens.xml";
-            String sw800file = savePath+"/values-sw800dp-land/dimens.xml";
-            String w820file = savePath+"/values-w820dp/dimens.xml";
+            for (int i = 0; i < screenBeans.size(); i++) {
+                System.out.println("<!--  "+screenBeans.get(i)+" -->");
+                System.out.println(dimen_xs[i]);
+            }
+            for (int i = 0; i < screenBeans.size(); i++) {
+                String filePath = savePath+"/values-"+screenBeans.get(i).getWidth_dp()+"x"+screenBeans.get(i).getHeight_dp()+"/dimens.xml";
+                writeFile(filePath, dimen_xs[i].toString());
+            }
+//            String sw480file = savePath+"/values-"+1920x1080+"/dimens.xml";
+//            String sw600file = savePath+"/values-sw600dp-land/dimens.xml";
+//            String sw720file = savePath+"/values-sw720dp-land/dimens.xml";
+//            String sw800file = savePath+"/values-sw800dp-land/dimens.xml";
+//            String w820file = savePath+"/values-w820dp/dimens.xml";
 //            writeFile(sw480file, sw480.toString());
 //            writeFile(sw600file, sw600.toString());
 //            writeFile(sw720file, sw720.toString());
@@ -120,6 +144,7 @@ public class ScreenUtil {
             e.printStackTrace();
         }
         out.close();
+        Log.e(TAG, "writeFile完成："+path );
     }
     @InverseMethod("floatToString")
     public static float stringToFloat(String s){
