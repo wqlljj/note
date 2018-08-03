@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+	<dimen name="a">16dp</dimen>
+	<dimen name="b">20dp</dimen>
+	<dimen name="ab">30px</dimen>
+	<dimen name="cd">40sp</dimen>
+	<dimen name="cs">50dp</dimen>
+	<dimen name="cc">66px</dimen>
+	<dimen name="xc">76sp</dimen>
+	<dimen name="cx">86dp</dimen>
+	<dimen name="zx">96px</dimen>
+	<dimen name="cdc">116dp</dimen>
+</resources>
