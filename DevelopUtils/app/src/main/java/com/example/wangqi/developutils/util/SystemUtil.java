@@ -267,8 +267,6 @@ public class SystemUtil {
     }
 
     public static int densityDpi(Activity activity) {
-        DisplayMetrics metric = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
-        return metric.densityDpi;  // 屏幕密度DPI（120 / 160 / 240）
+        return context.getResources().getDisplayMetrics().densityDpi;  // 屏幕密度DPI（120 / 160 / 240）
     }
 }

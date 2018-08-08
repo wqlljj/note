@@ -6,17 +6,35 @@
         <import type="com.example.wangqi.developutils.util.ScreenUtil" />
 
         <import type="android.content.Context" />
-
+        <import type="com.example.wangqi.developutils.view.listener.OnClickListener2" alias="Listener"/>
         <variable
             name="value"
             type="String" />
-
+        <variable
+            name="dppx"
+            type="String" />
+        <variable
+            name="pxsp"
+            type="String" />
+        <variable
+            name="dp2px"
+            type="Listener" />
+        <variable
+            name="sp2px"
+            type="Listener" />
+        <variable
+            name="px2dp"
+            type="Listener" />
+        <variable
+            name="px2sp"
+            type="Listener" />
     </data>
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/colorPrimary"
         tools:context="com.example.wangqi.developutils.view.ScreenUtilActivity">
 
         <LinearLayout
@@ -30,6 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:inputType="number"
                 android:text="@={value}" />
 
             <EditText
@@ -38,39 +57,46 @@
                 android:layout_weight="1"
                 android:hint="dp-px"
                 android:inputType="numberDecimal"
-                android:text="@={ScreenUtil.floatToString(ScreenUtil.scale)}" />
-            android:inputType="numberDecimal"
+                android:text="@={dppx}" />
+
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="px-sp"
                 android:inputType="numberDecimal"
-                android:text="@={ScreenUtil.floatToString(ScreenUtil.fontScale)}" />
+                android:text="@={pxsp}" />
         </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{(view)->ScreenUtil.dip2px(view.getContext(),Integer.valueOf(value))}"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="@{(view)->dp2px.onClick(Float.valueOf(value),Float.valueOf(dppx))}"
             android:text="dip2px" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{(view)->ScreenUtil.sp2px(view.getContext(),Integer.valueOf(value))}"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="@{(view)->sp2px.onClick(Float.valueOf(value),Float.valueOf(pxsp))}"
             android:text="sp2px" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{(view)->ScreenUtil.px2dip(view.getContext(),Integer.valueOf(value))}"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="@{(view)->px2dp.onClick(Float.valueOf(value),Float.valueOf(dppx))}"
             android:text="px2dip" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{(view)->ScreenUtil.px2sp(view.getContext(),Integer.valueOf(value))}"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="10dp"
+            android:onClick="@{(view)->px2sp.onClick(Float.valueOf(value),Float.valueOf(pxsp))}"
             android:text="px2sp" />
 
         <ListView

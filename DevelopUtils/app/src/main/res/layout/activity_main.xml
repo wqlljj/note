@@ -9,19 +9,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        >
 
         <Button
             android:id="@+id/screenUtil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="屏幕及系统信息"
+            android:background="@color/colorPrimaryDark"
             android:onClick="@{onClick::click}"/>
         <Button
             android:id="@+id/fitScreen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="屏幕适配"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
             android:onClick="@{onClick::click}"/>
     </LinearLayout>
 </layout>

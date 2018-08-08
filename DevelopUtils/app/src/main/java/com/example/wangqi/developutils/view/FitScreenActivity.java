@@ -3,55 +3,134 @@ package com.example.wangqi.developutils.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Rect;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 
 import com.example.wangqi.developutils.R;
+import com.example.wangqi.developutils.application.Constant;
+import com.example.wangqi.developutils.bean.EventBean;
 import com.example.wangqi.developutils.bean.ScreenBean;
 import com.example.wangqi.developutils.databinding.ActivityFitScreenBinding;
 import com.example.wangqi.developutils.util.ScreenUtil;
+import com.example.wangqi.developutils.util.SharePreferenceUtils;
+import com.example.wangqi.developutils.util.SystemUtil;
 import com.example.wangqi.developutils.util.ToastOrLogUtil;
+import com.google.gson.Gson;
 import com.leon.lfilepickerlibrary.LFilePicker;
+import com.vincent.filepicker.DividerGridItemDecoration;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import static com.example.wangqi.developutils.bean.EventBean.CODE.DIMENS_LOG;
 
 public class FitScreenActivity extends AppCompatActivity {
 
     private ActivityFitScreenBinding viewDataBinding;
     private static final int REQUESTCODE_DIMENS_X = 1000;
     private static final int REQUESTCODE_DIMENS_Y = 1001;
-    private String TAG ="FitScreenActivity";
+    private String baseDimensPath = "/storage/emulated/0/tencent/QQfile_recv";
+    private String TAG = "FitScreenActivity";
     private ScreenBean baseScreenBean;
-    private ArrayList<ScreenBean> screenBeens;
+    private ScreenInfoAdapter adapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fit_screen);
+        EventBus.getDefault().register(this);
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_fit_screen);
+        viewDataBinding.setGenerateBaseDimens(generateBaseDimens);
         viewDataBinding.setSelectXFile(selectXFile);
         viewDataBinding.setSelectYFile(selectYFile);
         viewDataBinding.setStartRunner(startRunner);
-        baseScreenBean = new ScreenBean(1400,2560,3.5f,3.5f);
-        screenBeens=new ArrayList<>();
-        screenBeens.add(new ScreenBean(1024,768,1f,1f));
-        screenBeens.add(new ScreenBean(1920,1200,1.5f,1.5f));
-        screenBeens.add(new ScreenBean(1920,1080,1f,1f));
-        screenBeens.add(new ScreenBean(2560,1400,2f,2f));
+        viewDataBinding.setLogInvisible(logInvisible);
+        baseScreenBean = new ScreenBean(SystemUtil.Width(), SystemUtil.Height(), SystemUtil.density(), SystemUtil.scaledDensity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        //设置布局管理器
+        viewDataBinding.screenInfo.setLayoutManager(layoutManager);
+        //设置为垂直布局，这也是默认的
+        layoutManager.setOrientation(OrientationHelper.VERTICAL);
+        //设置Adapter
+        adapter = new ScreenInfoAdapter();
+        viewDataBinding.screenInfo.setAdapter(adapter);
+        viewDataBinding.screenInfo.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                //设定底部边距为1px
+                 outRect.set(0, 0, 0, 5);
+            }
+            });
+            //设置增加或删除条目的动画
+        viewDataBinding.screenInfo.setItemAnimator(new DefaultItemAnimator());
+
+            initData();
+        }
+
+    private void initData() {
+        String s = SharePreferenceUtils.getPrefString(Constant.KEY_SCREENINFO, "");
+        ToastOrLogUtil.e(TAG, "screenBean_string: " + s);
+        ArrayList<ScreenBean> screenBeens = new ArrayList<>();
+        if (TextUtils.isEmpty(s)) {
+            screenBeens.add(baseScreenBean);
+            screenBeens.add(new ScreenBean(0, 0, 0, 0));
+        } else {
+            String[] split = s.substring(1, s.length() - 1).split(" , ");
+            Gson gson = new Gson();
+            for (String s1 : split) {
+                ToastOrLogUtil.e(TAG, "screenBean_string: " + s1);
+                screenBeens.add(gson.fromJson(s1, ScreenBean.class));
+            }
+            baseScreenBean = screenBeens.get(0);
+        }
+        adapter.addDatas(screenBeens);
     }
+
+    OnClickListener logInvisible = new OnClickListener() {
+        @Override
+        public void onClick() {
+            viewDataBinding.tvLog.setText("");
+            viewDataBinding.logInfo.setVisibility(View.INVISIBLE);
+        }
+    };
     OnClickListener startRunner = new OnClickListener() {
         @Override
         public void onClick() {
-            Log.e(TAG, "onClick: "+viewDataBinding.getXFilePath()+"\n保存路径："+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/fitScreen" );
-            ScreenUtil.gen(viewDataBinding.getXFilePath(),viewDataBinding.getYFilePath(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+"/fitScreen"
-                    ,baseScreenBean,screenBeens);
+            viewDataBinding.logInfo.setVisibility(View.VISIBLE);
+            Log.e(TAG, "onClick: " + viewDataBinding.getXFilePath() + "\n保存路径：" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/fitScreen");
+            ArrayList<ScreenBean> data = new ArrayList<>();
+            for (int i = 0; i < adapter.getData().size(); i++) {
+                if(i!=1)
+                data.add(adapter.getData().get(i));
+            }
+            Log.e(TAG, "onClick: "+data );
+            ScreenUtil.gen(viewDataBinding.getXFilePath(), viewDataBinding.getYFilePath(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/fitScreen"
+                    , baseScreenBean, data);
         }
     };
-
+    OnClickListener generateBaseDimens = new OnClickListener() {
+        @Override
+        public void onClick() {
+            viewDataBinding.logInfo.setVisibility(View.VISIBLE);
+            ScreenUtil.createBaseDimens(baseDimensPath, baseScreenBean);
+        }
+    };
     OnClickListener selectXFile = new OnClickListener() {
         @Override
         public void onClick() {
@@ -64,6 +143,16 @@ public class FitScreenActivity extends AppCompatActivity {
             selectFile(REQUESTCODE_DIMENS_Y);
         }
     };
+    StringBuilder log=new StringBuilder();
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void event(EventBean event) {
+        switch (event.getCode()) {
+            case DIMENS_LOG:
+                log.append(event.getMsg());
+                viewDataBinding.tvLog.append("\n"+event.getMsg());
+                break;
+        }
+    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -74,12 +163,12 @@ public class FitScreenActivity extends AppCompatActivity {
                         //If it is a file selection mode, you need to get the path collection of all the files selected
                         //List<String> list = data.getStringArrayListExtra(Constant.RESULT_INFO);//Constant.RESULT_INFO == "paths"
                         List<String> list = data.getStringArrayListExtra("paths");
-                        ToastOrLogUtil.e(TAG,list.toString());
+                        ToastOrLogUtil.e(TAG, list.toString());
                         viewDataBinding.setXFilePath(list.get(0));
                     } else {
                         //If it is a folder selection mode, you need to get the folder path of your choice
                         String path = data.getStringExtra("path");
-                        ToastOrLogUtil.e(TAG,path);
+                        ToastOrLogUtil.e(TAG, path);
                     }
                     break;
                 case REQUESTCODE_DIMENS_Y:
@@ -87,17 +176,17 @@ public class FitScreenActivity extends AppCompatActivity {
                         //If it is a file selection mode, you need to get the path collection of all the files selected
                         //List<String> list = data.getStringArrayListExtra(Constant.RESULT_INFO);//Constant.RESULT_INFO == "paths"
                         List<String> list = data.getStringArrayListExtra("paths");
-                        ToastOrLogUtil.e(TAG,list.toString());
+                        ToastOrLogUtil.e(TAG, list.toString());
                         viewDataBinding.setYFilePath(list.get(0));
                     } else {
                         //If it is a folder selection mode, you need to get the folder path of your choice
                         String path = data.getStringExtra("path");
-                        ToastOrLogUtil.e(TAG,path);
+                        ToastOrLogUtil.e(TAG, path);
                     }
                     break;
             }
-        }else{
-            ToastOrLogUtil.show(this,"获取路径失败，请重新选择");
+        } else {
+            ToastOrLogUtil.show(this, "获取路径失败，请重新选择");
         }
 
     }
@@ -106,11 +195,17 @@ public class FitScreenActivity extends AppCompatActivity {
         new LFilePicker()
                 .withActivity(this)
                 .withRequestCode(requestCode)
-                .withStartPath("/storage/emulated/0/tencent/QQfile_recv")
+                .withStartPath(baseDimensPath)
                 .withTitle("xml文件选择")
                 .withChooseMode(true)
                 .withMaxNum(1)
                 .withFileFilter(new String[]{".xml"})
                 .start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

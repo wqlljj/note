@@ -4,6 +4,9 @@
     <data>
         <import type="com.example.wangqi.developutils.view.OnClickListener" alias="OnClickListener"/>
         <variable
+            name="generateBaseDimens"
+            type="OnClickListener"/>
+        <variable
             name="selectXFile"
             type="OnClickListener"/>
         <variable
@@ -11,6 +14,9 @@
             type="OnClickListener"/>
         <variable
             name="startRunner"
+            type="OnClickListener"/>
+        <variable
+            name="logInvisible"
             type="OnClickListener"/>
         <variable
             name="xFilePath"
@@ -24,18 +30,29 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="生成默认dimens文件"
+            android:gravity="center"
+            android:onClick="@{()->generateBaseDimens.onClick()}"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/generateBaseDimens"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:padding="5dp"
             android:background="@color/colorPrimaryDark"
-            android:id="@+id/linear1">
+            android:id="@+id/linear1"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/generateBaseDimens">
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:text="@{xFilePath}"
                 android:hint="dimens_x"
+                android:gravity="center"
                 android:layout_height="match_parent" />
             <TextView
                 android:layout_width="wrap_content"
@@ -51,6 +68,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:padding="5dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/linear1"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/linear2">
@@ -59,6 +77,7 @@
                 android:layout_weight="1"
                 android:text="@{yFilePath}"
                 android:hint="dimens_y"
+                android:gravity="center"
                 android:layout_height="match_parent" />
             <TextView
                 android:layout_width="wrap_content"
@@ -73,13 +92,55 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="开始生成"
+            android:id="@+id/bt_start"
             android:gravity="center"
             android:layout_below="@+id/linear2"
-            android:layout_marginTop="10px"
+            android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
             android:onClick="@{()->startRunner.onClick()}"
             />
 
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bt_start"
+            android:id="@+id/screenInfo"
+            android:layout_marginTop="10dp"
+            app:layoutManager="LinearLayoutManager"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/bt_start"
+            android:id="@+id/logInfo"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_log"
+                    android:textSize="17sp"
+                    />
+            </ScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="隐藏"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:onClick="@{()->logInvisible.onClick()}"
+                />
+        </LinearLayout>
 
     </RelativeLayout>
 

@@ -53,4 +53,6 @@ dependencies {
 //文件选择
     compile 'com.vincent.filepicker:MultiTypeFilePicker:1.0.7'
     compile 'com.leon:lfilepickerlibrary:1.8.0'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
