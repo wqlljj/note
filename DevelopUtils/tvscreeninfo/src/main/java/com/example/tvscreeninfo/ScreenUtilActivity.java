@@ -1,62 +1,30 @@
-package com.example.wangqi.developutils.view;
+package com.example.tvscreeninfo;
 
 import android.app.Activity;
 import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
 import android.widget.ArrayAdapter;
 
-import com.example.wangqi.developutils.R;
-import com.example.wangqi.developutils.bean.ScreenBean;
-import com.example.wangqi.developutils.databinding.ActivityScreenUtilBinding;
-import com.example.wangqi.developutils.util.ScreenUtil;
-import com.example.wangqi.developutils.util.SystemUtil;
-import com.example.wangqi.developutils.util.ToastOrLogUtil;
-import com.example.wangqi.developutils.view.listener.OnClickListener2;
+import com.example.tvscreeninfo.databinding.ActivityScreenInfoBinding;
+import com.example.tvscreeninfo.util.ScreenUtil;
+import com.example.tvscreeninfo.util.SystemUtil;
+import com.example.tvscreeninfo.util.ToastOrLogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScreenUtilActivity extends Activity {
+    private ActivityScreenInfoBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_util);
-        ActivityScreenUtilBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_screen_util);
-        binding.setValue("10");
-        binding.setDppx(""+ScreenUtil.getDensity(this));
-        binding.setPxsp(""+ScreenUtil.getScaledDensity(this));
-        binding.setDp2px(new OnClickListener2() {
-            @Override
-            public void onClick(float value, float f) {
-                ToastOrLogUtil.show(ScreenUtilActivity.this,value+" dp = "+ ScreenUtil.dip2px(value,f)+" px");
-            }
-        });
-        binding.setPx2dp(new OnClickListener2() {
-            @Override
-            public void onClick(float value, float f) {
-                ToastOrLogUtil.show(ScreenUtilActivity.this,value+" px = "+ScreenUtil.px2dip(value,f)+" dp");
-            }
-        });
-        binding.setPx2sp(new OnClickListener2() {
-            @Override
-            public void onClick(float value, float f) {
-                ToastOrLogUtil.show(ScreenUtilActivity.this,value+" px = "+ScreenUtil.px2sp(value,f)+" sp");
-            }
-        });
-        binding.setSp2px(new OnClickListener2() {
-            @Override
-            public void onClick(float value, float f) {
-                ToastOrLogUtil.show(ScreenUtilActivity.this,value+" sp = "+ScreenUtil.sp2px(value,f)+" px");
-            }
-        });
-
+        setContentView(R.layout.activity_screen_info);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_screen_info);
         List<String> data=new ArrayList<>();
-        data.add("手机的IMEI号:  "+SystemUtil.IMEI());
+        data.add("手机的IMEI号:  "+ SystemUtil.IMEI());
         data.add("手机产品的序列号:  "+ SystemUtil.SN());
         data.add("手机的sim号:  "+SystemUtil.SIM());
         data.add("手机的ID:  "+SystemUtil.ID());

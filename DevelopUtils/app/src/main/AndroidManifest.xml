@@ -20,17 +20,18 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".view.ScreenUtilActivity"
             android:screenOrientation="portrait"
-            android:label="屏幕及系统信息"/>
+            android:label="屏幕及系统信息">
+        </activity>
         <activity android:name=".view.FitScreenActivity"
             android:screenOrientation="portrait"
-            android:label="多屏幕适配"></activity>
+            android:label="多屏幕适配">
+        </activity>
     </application>
 
 </manifest>
