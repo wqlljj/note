@@ -1,17 +1,25 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
+greendao {
+    //数据库的schema版本，也可以理解为数据库版本号
+    schemaVersion 1
+    //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的全路径。
+    daoPackage 'com.example.wqllj.locationshare.db.dao'
+    //设置DaoMaster、DaoSession、Dao目录
+    targetGenDir 'src/main/java'
+}
 android {
     signingConfigs {
         debug {
             keyAlias 'qiwang'
             keyPassword '123456'
-            storeFile file('C:/Users/cloud/Desktop/LocationShare/key.jks')
+            storeFile file('C:/Users/cloud/Desktop/wangqi/development_framework/LocationShare/key.jks')
             storePassword '123456'
         }
         release {
             keyAlias 'qiwang'
             keyPassword '123456'
-            storeFile file('C:/Users/cloud/Desktop/LocationShare/key.jks')
+            storeFile file('C:/Users/cloud/Desktop/wangqi/development_framework/LocationShare/key.jks')
             storePassword '123456'
         }
     }
@@ -42,6 +50,9 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -49,27 +60,32 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile(name: 'NaviTts', ext: 'aar')
+    compile(name: 'onsdk_all', ext: 'aar')
+    // Room
+    //retrofit
+    //Glide
+    //    compile 'de.greenrobot:eventbus:3.0.0-beta1'
     compile 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-    compile(name:'NaviTts', ext:'aar')
-    compile(name:'onsdk_all', ext:'aar')
     compile 'com.github.hotchemi:permissionsdispatcher:3.1.0'
-    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
     compile 'android.arch.lifecycle:extensions:1.1.0'
-    // Room
-    compile 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
-    compile 'android.arch.persistence.room:rxjava2:1.0.0'
-    //retrofit
+//    compile 'android.arch.persistence.room:runtime:1.0.0'
+//    compile 'android.arch.persistence.room:rxjava2:1.0.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
-    //Glide
     compile 'com.github.bumptech.glide:glide:4.6.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
     compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-    //    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    compile 'com.android.support:support-v4:27.+'
+    compile 'com.android.support:design:27.+'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    compile 'org.greenrobot:greendao:3.2.2' // add library
+    compile 'org.greenrobot:greendao-generator:3.2.2'
 }

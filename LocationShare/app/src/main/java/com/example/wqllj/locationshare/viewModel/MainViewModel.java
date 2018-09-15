@@ -13,11 +13,10 @@ public class MainViewModel extends ViewModel {
     MainModel model;
 
     public MainViewModel() {
-        model=new MainModel();
     }
 
     public void init(Context context) {
-        model.init(context);
+        model=new MainModel(context);
     }
     public void destory(){
         model.destory();

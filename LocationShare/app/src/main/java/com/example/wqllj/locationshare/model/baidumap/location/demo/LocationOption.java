@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
 import com.example.wqllj.locationshare.R;
-import com.example.wqllj.locationshare.application.AppAplication;
+import com.example.wqllj.locationshare.application.AppApplication;
 import com.example.wqllj.locationshare.model.baidumap.location.service.LocationService;
 import com.example.wqllj.locationshare.model.baidumap.location.service.Utils;
 
@@ -44,7 +44,7 @@ public class LocationOption extends Activity{
 		describe = (CheckBox)findViewById(R.id.Describe);
 		director = (CheckBox)findViewById(R.id.Director);
 		startLoc = (Button)findViewById(R.id.start);
-		locService =  ((AppAplication)getApplication()).locationService;
+		locService =  ((AppApplication)getApplication()).locationService;
 		option = new LocationClientOption();
 		locService.stop();
 	}

@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data></data>
+    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/blue"
+        android:id="@+id/root"
     >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        />
-</LinearLayout>
+    <com.example.wqllj.locationshare.view.customview.CViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/content_view"
+        >
+
+    </com.example.wqllj.locationshare.view.customview.CViewPager>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/navigate_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabTextColor="@android:color/black"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        android:background="@android:color/holo_orange_light"
+        app:tabIndicatorHeight="0dp"
+        >
+
+    </android.support.design.widget.TabLayout>
+    </LinearLayout>
+</layout>

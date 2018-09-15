@@ -12,7 +12,7 @@ import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
 import com.example.wqllj.locationshare.R;
-import com.example.wqllj.locationshare.application.AppAplication;
+import com.example.wqllj.locationshare.application.AppApplication;
 import com.example.wqllj.locationshare.model.baidumap.location.service.LocationService;
 
 /***
@@ -84,7 +84,7 @@ public class LocationActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onStart();
 		// -----------location config ------------
-		locationService = ((AppAplication) getApplication()).locationService;
+		locationService = ((AppApplication) getApplication()).locationService;
 		//获取locationservice实例，建议应用中只初始化1个location实例，然后使用，可以参考其他示例的activity，都是通过此种方式获取locationservice实例的
 		locationService.registerListener(mListener);
 		//注册监听

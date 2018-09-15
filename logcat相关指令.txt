@@ -1,0 +1,7 @@
+Android 的logcat支持直接输出到文件。
+关键代码：
+Runtime.getRuntime().exec("logcat -f "+ filePath);
+
+我个人习惯是写在application的 oncreate()中。
+logcat还支持很多其他参数，具体可以参见官方文档。
+http://developer.android.com/tools/debugging/debugging-log.html#startingLogcat

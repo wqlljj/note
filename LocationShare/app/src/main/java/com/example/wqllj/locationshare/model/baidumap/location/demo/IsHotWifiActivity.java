@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.example.wqllj.locationshare.R;
-import com.example.wqllj.locationshare.application.AppAplication;
+import com.example.wqllj.locationshare.application.AppApplication;
 import com.example.wqllj.locationshare.model.baidumap.location.service.LocationService;
 
 /***
@@ -34,7 +34,7 @@ public class IsHotWifiActivity extends Activity{
 		setContentView(R.layout.hotwifi);
 		res = (TextView)findViewById(R.id.hotwifiResult);
 		startBtn = (Button)findViewById(R.id.start);
-		locService = ((AppAplication) getApplication()).locationService;
+		locService = ((AppApplication) getApplication()).locationService;
 		listener = new MyLocationListener();
 		locService.registerListener(listener);
 		locService.start();

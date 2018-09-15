@@ -10,13 +10,12 @@ import com.example.wqllj.locationshare.util.SharePreferenceUtils;
  */
 
 public class Constant {
-    //http://10.11.36.202:8088/aifile/screen/amov_bbb.mp4
-    public static String IP="10.11.36.202";
+    public static String IP="10.11.102.76";
     private static String IMAGEBASE_URL ="http://%s:8088/";
     //mqtt
-    private static String HOST = "tcp://%s:1883";
-    public static final String USERNAME = "cloud";
-    public static final String PASSWORD = "123456";
+    private static String HOST = "tcp://%s:61613";
+    public static final String USERNAME = "admin";
+    public static final String PASSWORD = "password";
     public static final String TOPIC = "Employee";
     public static String CLIENTID = "aface";
 

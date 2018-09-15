@@ -21,7 +21,7 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.DistanceUtil;
 import com.example.wqllj.locationshare.R;
-import com.example.wqllj.locationshare.application.AppAplication;
+import com.example.wqllj.locationshare.application.AppApplication;
 import com.example.wqllj.locationshare.model.baidumap.location.service.LocationService;
 import com.example.wqllj.locationshare.model.baidumap.location.service.Utils;
 
@@ -53,7 +53,7 @@ public class LocationFilter extends Activity {
 		mBaiduMap = mMapView.getMap();
 		mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
 		mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(15));
-		locService = ((AppAplication) getApplication()).locationService;
+		locService = ((AppApplication) getApplication()).locationService;
 		LocationClientOption mOption = locService.getDefaultLocationClientOption();
 		mOption.setLocationMode(LocationClientOption.LocationMode.Battery_Saving);
 		mOption.setCoorType("bd09ll");

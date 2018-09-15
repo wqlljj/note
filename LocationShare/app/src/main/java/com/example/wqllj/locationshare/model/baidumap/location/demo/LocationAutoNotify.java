@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.LocationClientOption.LocationMode;
 import com.example.wqllj.locationshare.R;
-import com.example.wqllj.locationshare.application.AppAplication;
+import com.example.wqllj.locationshare.application.AppApplication;
 import com.example.wqllj.locationshare.model.baidumap.location.service.LocationService;
 
 /***
@@ -35,7 +35,7 @@ public class LocationAutoNotify extends Activity{
 		distance = (EditText)findViewById(R.id.autonotify_distance);
 		time = (EditText)findViewById(R.id.autonotify_time);
 		startLoc = (Button)findViewById(R.id.autonotify_start);
-		locService =  ((AppAplication)getApplication()).locationService;
+		locService =  ((AppApplication)getApplication()).locationService;
 		mOption = new LocationClientOption();
 		mOption = locService.getDefaultLocationClientOption();
 		mOption.setOpenAutoNotifyMode(); //设置默认值
