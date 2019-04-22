@@ -38,6 +38,9 @@ public class RouteLineOperator extends Operator<RouteLineBean> {
             eventBeanDao.delete(routeLineBean);
         }
     }
+    public List<RouteLineBean> queryByPersonId(Long personId){
+        return DbManager.getInstance().getDaoSession().getRouteLineBeanDao().queryBuilder().where(RouteLineBeanDao.Properties.PersonId.eq(personId)).list();
+    }
     public List<RouteLineBean> queryByTime(Long time){
         return DbManager.getInstance().getDaoSession().getRouteLineBeanDao().queryBuilder().where(RouteLineBeanDao.Properties.Date.eq(time)).list();
     }

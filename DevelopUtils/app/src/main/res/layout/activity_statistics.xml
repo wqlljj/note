@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.example.wangqi.developutils.view.OnClickListener"/>
+        <variable
+            name="selectXFile"
+            type="OnClickListener"/>
+        <variable
+            name="statistic"
+            type="OnClickListener"/>
+        <variable
+            name="filePath"
+            type="String"/>
+    </data>
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        tools:context="com.example.wangqi.developutils.view.StatisticsActivity">
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/generateBaseDimens"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="选择文件"
+                android:onClick="@{()->selectXFile.onClick()}"
+                android:text="@{filePath}"
+                android:id="@+id/filePath"/>
+            <TextView
+                android:id="@+id/statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="统计"
+                android:enabled="false"
+                android:textColor="#000"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:onClick="@{()->statistic.onClick()}"
+                android:background="@drawable/text_bg"
+                />
+        </LinearLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/signList">
+
+        </ListView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/contentView"
+            >
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">DevelopUtils</string>
     <string name="title_activity_screen_util">ScreenUtilActivity</string>
+    <string name="title_activity_special_set">SpecialSetActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

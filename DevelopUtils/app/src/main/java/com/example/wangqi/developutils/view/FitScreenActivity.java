@@ -3,17 +3,31 @@ package com.example.wangqi.developutils.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.example.wangqi.developutils.R;
 import com.example.wangqi.developutils.application.Constant;
@@ -37,17 +51,18 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.example.wangqi.developutils.application.Constant.baseDimensPath;
 import static com.example.wangqi.developutils.bean.EventBean.CODE.DIMENS_LOG;
 
-public class FitScreenActivity extends AppCompatActivity {
+public class FitScreenActivity extends AppCompatActivity implements View.OnLongClickListener, AdapterView.OnItemClickListener, View.OnClickListener {
 
     private ActivityFitScreenBinding viewDataBinding;
     private static final int REQUESTCODE_DIMENS_X = 1000;
     private static final int REQUESTCODE_DIMENS_Y = 1001;
-    private String baseDimensPath = "/storage/emulated/0/tencent/QQfile_recv";
     private String TAG = "FitScreenActivity";
     private ScreenBean baseScreenBean;
     private ScreenInfoAdapter adapter;
+    private PopupWindow popupWindow;
 
 
     @Override
@@ -69,6 +84,7 @@ public class FitScreenActivity extends AppCompatActivity {
         layoutManager.setOrientation(OrientationHelper.VERTICAL);
         //设置Adapter
         adapter = new ScreenInfoAdapter();
+        adapter.setLongClickListener(this);
         viewDataBinding.screenInfo.setAdapter(adapter);
         viewDataBinding.screenInfo.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
@@ -79,7 +95,6 @@ public class FitScreenActivity extends AppCompatActivity {
             });
             //设置增加或删除条目的动画
         viewDataBinding.screenInfo.setItemAnimator(new DefaultItemAnimator());
-
             initData();
         }
 
@@ -206,6 +221,58 @@ public class FitScreenActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        adapter.setLongClickListener(null);
         EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        int childLayoutPosition = viewDataBinding.screenInfo.getChildLayoutPosition(v);
+        Toast.makeText(this, "长按："+"   "+ childLayoutPosition, Toast.LENGTH_SHORT).show();
+        if(childLayoutPosition==0){
+//            startActivity(new Intent(this,SpecialSetActivity.class));
+            if(popupWindow==null) {
+                initPopup();
+            }
+                popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
+        }
+        return false;
+    }
+
+    private void initPopup() {
+        View pop = View.inflate(this, R.layout.popup_screeninfo, null);
+        ListView screenInfo = (ListView) pop.findViewById(R.id.screenInfo);
+        pop.findViewById(R.id.back).setOnClickListener(this);
+        ArrayList<String> list=new ArrayList<>();
+        ArrayList<ScreenBean> data = adapter.getData();
+        for (int i = 2; i < data.size(); i++) {
+            list.add(data.get(i).getWidth_px()+"*"+data.get(i).getHeight_px());
+        }
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+        screenInfo.setAdapter(adapter);
+        screenInfo.setOnItemClickListener(this);
+        popupWindow = new PopupWindow(pop, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(false);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        ScreenBean screenBean = adapter.getData().get(position + 2);
+        Toast.makeText(this, "点击  "+position+"  "+id +"  "+screenBean.getWidth_px()+"*"+screenBean.getHeight_px(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SpecialSetActivity.class);
+        intent.putExtra("ScreenBean",screenBean);
+        startActivity(intent);
+        popupWindow.dismiss();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.back:
+                popupWindow.dismiss();
+                break;
+        }
     }
 }

@@ -34,6 +34,7 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property LatLngs = new Property(1, String.class, "latLngs", false, "LAT_LNGS");
         public final static Property Date = new Property(2, Long.class, "date", false, "DATE");
+        public final static Property PersonId = new Property(3, Long.class, "personId", false, "PERSON_ID");
     }
 
     private DaoSession daoSession;
@@ -55,7 +56,8 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"ROUTE_LINE_BEAN\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"LAT_LNGS\" TEXT," + // 1: latLngs
-                "\"DATE\" INTEGER);"); // 2: date
+                "\"DATE\" INTEGER," + // 2: date
+                "\"PERSON_ID\" INTEGER);"); // 3: personId
         // Add Indexes
         db.execSQL("CREATE UNIQUE INDEX " + constraint + "IDX_ROUTE_LINE_BEAN__id ON \"ROUTE_LINE_BEAN\"" +
                 " (\"_id\" ASC);");
@@ -85,6 +87,11 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
         if (date != null) {
             stmt.bindLong(3, date);
         }
+ 
+        Long personId = entity.getPersonId();
+        if (personId != null) {
+            stmt.bindLong(4, personId);
+        }
     }
 
     @Override
@@ -105,6 +112,11 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
         if (date != null) {
             stmt.bindLong(3, date);
         }
+ 
+        Long personId = entity.getPersonId();
+        if (personId != null) {
+            stmt.bindLong(4, personId);
+        }
     }
 
     @Override
@@ -123,7 +135,8 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
         RouteLineBean entity = new RouteLineBean( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : latLngsConverter.convertToEntityProperty(cursor.getString(offset + 1)), // latLngs
-            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2) // date
+            cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2), // date
+            cursor.isNull(offset + 3) ? null : cursor.getLong(offset + 3) // personId
         );
         return entity;
     }
@@ -133,6 +146,7 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setLatLngs(cursor.isNull(offset + 1) ? null : latLngsConverter.convertToEntityProperty(cursor.getString(offset + 1)));
         entity.setDate(cursor.isNull(offset + 2) ? null : cursor.getLong(offset + 2));
+        entity.setPersonId(cursor.isNull(offset + 3) ? null : cursor.getLong(offset + 3));
      }
     
     @Override
@@ -169,7 +183,7 @@ public class RouteLineBeanDao extends AbstractDao<RouteLineBean, Long> {
             builder.append(',');
             SqlUtils.appendColumns(builder, "T0", daoSession.getPersonBeanDao().getAllColumns());
             builder.append(" FROM ROUTE_LINE_BEAN T");
-            builder.append(" LEFT JOIN PERSON_BEAN T0 ON T.\"_id\"=T0.\"_id\"");
+            builder.append(" LEFT JOIN PERSON_BEAN T0 ON T.\"PERSON_ID\"=T0.\"_id\"");
             builder.append(' ');
             selectDeep = builder.toString();
         }

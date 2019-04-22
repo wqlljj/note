@@ -92,7 +92,7 @@ public class DateUtil {
 	}
 	
 	public  static String dateToString(Long date){
-		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		return sdf.format(date);
 	}
 	

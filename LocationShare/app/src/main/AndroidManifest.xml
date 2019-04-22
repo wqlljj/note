@@ -27,6 +27,31 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- 连接网络权限，用于执行云端语音能力 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 读取网络信息状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 读取手机信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 读取联系人权限，上传联系人需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--  读取联系人权限  -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+      
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <!-- 开机广播 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.AppApplication"
@@ -38,7 +63,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="vLAxp4escnWUhNMph4jUD16ofeiCtmMZ"></meta-data>
+            android:value="vLAxp4escnWUhNMph4jUD16ofeiCtmMZ" />
 
         <activity
             android:name=".view.MainActivity"
@@ -49,59 +74,137 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.FootPrintDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".view.FootPrintDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".model.baidumap.navi_car.DemoGuideActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".model.baidumap.navi_car.DemoNaviSettingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".model.baidumap.navi_bike_wake.BNaviGuideActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".model.baidumap.navi_bike_wake.BNaviMainActivity"
+        <activity
+            android:name=".model.baidumap.navi_bike_wake.BNaviGuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.navi_bike_wake.BNaviMainActivity"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".model.baidumap.navi_bike_wake.WNaviGuideActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.navi_bike_wake.WNaviGuideActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".model.baidumap.location.demo.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity android:name=".model.baidumap.location.demo.LocationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.LocationOption"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.LocationFilter"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.NotifyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.QuestActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.LocationAutoNotify"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" />
-        <activity android:name=".model.baidumap.location.demo.IndoorLocationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.ForegroundActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".model.baidumap.location.demo.IsHotWifiActivity"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".model.baidumap.location.demo.LocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.LocationOption"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.LocationFilter"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.NotifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.QuestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.LocationAutoNotify"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.IndoorLocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.ForegroundActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.baidumap.location.demo.IsHotWifiActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
         <!-- Mqtt Service -->
         <service android:name="org.eclipse.paho.android.service.MqttService" />
         <service android:name=".model.mqtt.MQTTService" />
 
-        <activity
-            android:name=".view.MapActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_map"
-            android:theme="@style/FullscreenTheme"></activity>
+        <activity android:name=".view.ActionActivity" />
+        <!--<receiver-->
+            <!--android:name=".broadcast.KeepAliveReceiver"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+                <!--&lt;!&ndash; <category android:name="android.intent.category.LAUNCHER" /> &ndash;&gt;-->
+                <!--<action android:name="com.example.sx.practicalassistant.keepalive" />-->
+            <!--</intent-filter>-->
+            <!-- -->
+        <!--</receiver>-->
+        <!--<receiver-->
+            <!--android:name=".broadcast.KeepAliveReceiver"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+                <!--<action android:name="android.intent.action.REBOOT" />-->
+                <!--<action android:name="android.intent.action.ACTION_SHUTDOWN" />-->
+                <!--<action android:name="android.intent.action.USER_PRESENT" />-->
+                <!--<action android:name="com.example.wqllj.locationshare.broadcast.ACTION_KEEPALIVE" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <service
+            android:name=".service.JobSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process="com.jobschedulerservice">
+
+        </service>
+
+        <receiver android:name=".widget.WidgetProvider"
+            android:exported="true"
+            >
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider_info" />
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.wqllj.locationshare.widget.CLICK" />
+            </intent-filter>
+
+        </receiver>
+        <receiver android:name=".view.BootReceiver" android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+                <action android:name="com.example.sx.practicalassistant.keepalive" />
+            </intent-filter>
+        </receiver>
+
+
+        <service android:name=".widget.MyService">
+            <intent-filter>
+                <action android:name="android.appwidget.action.GOD_DAVID_MYSERVICE"></action>
+            </intent-filter>
+        </service>
+        <service android:name=".service.LocationAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/labelInfo"
+            android:process="com.locationshare.locationaccessibilityservice"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
     </application>
 
 </manifest>

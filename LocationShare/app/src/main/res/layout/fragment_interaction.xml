@@ -2,12 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bginteraction"
+    android:paddingBottom="?attr/actionBarSize"
     tools:context="com.example.wqllj.locationshare.view.InteractionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?attr/actionBarSize"
+        android:text="亲密互动"
+        android:textSize="30sp"
+        android:textColor="@color/text_white"
+        android:gravity="center"
+        />
 
 </FrameLayout>

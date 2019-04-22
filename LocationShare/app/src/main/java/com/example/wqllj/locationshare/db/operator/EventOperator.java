@@ -39,11 +39,18 @@ public class EventOperator extends Operator<EventBean> {
         }
         return list;
     }
+    public List<EventBean> queryByPersonId(Long personId){
+        List<EventBean> list = DbManager.getInstance().getDaoSession().getEventBeanDao().queryBuilder().where(EventBeanDao.Properties.Person_id.eq(personId)).list();
+        return list;
+    }
     public List<EventBean> queryByName(String name){
         List<EventBean> list = DbManager.getInstance().getDaoSession().getEventBeanDao().queryBuilder().where(EventBeanDao.Properties.Name.eq(name)).list();
         return list;
     }
-
+    public List<EventBean> queryByPointId(Long pointId){
+        List<EventBean> list = DbManager.getInstance().getDaoSession().getEventBeanDao().queryBuilder().where(EventBeanDao.Properties.CoordinatePointId.eq(pointId)).list();
+        return list;
+    }
     public List<EventBean> queryEventByDate(Long start, Long end) {
         List<EventBean> list = DbManager.getInstance().getDaoSession().getEventBeanDao().queryBuilder().list();
         Iterator<EventBean> iterator = list.iterator();

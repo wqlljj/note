@@ -1,0 +1,123 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bgdynamic"
+        android:paddingBottom="?attr/actionBarSize"
+        tools:context="com.example.wqllj.locationshare.view.DynamicFragment">
+
+        <LinearLayout
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="爱的记忆"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textColor="#0197e8"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="她的动态"
+            android:textSize="20sp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="#f9fbfc"
+            android:background="@color/grey_translucent"
+            />
+
+        <TextView
+            android:id="@+id/h_footPrint"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/action_bar"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="她的足迹"
+            android:textSize="23sp"
+            android:textColor="#018dfe"
+            android:background="@color/grey_translucent"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/h_action"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/action_bar"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="她的活动"
+            android:textSize="23sp"
+            android:textColor="#018dfe"
+            android:background="@color/grey_translucent"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我的动态"
+            android:textSize="20sp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="#f9fbfc"
+            android:background="@color/grey_translucent"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/my_footPrint"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/action_bar"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="我的足迹"
+            android:textSize="23sp"
+            android:textColor="#018dfe"
+            android:background="@color/grey_translucent"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/my_action"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/action_bar"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="我的活动"
+            android:textSize="23sp"
+            android:textColor="#018dfe"
+            android:background="@color/grey_translucent"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/navigate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/action_bar"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:text="找TA"
+            android:textSize="23sp"
+            android:textColor="#018dfe"
+            android:background="@color/grey_translucent"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+</layout>

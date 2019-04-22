@@ -44,4 +44,6 @@
     <string name="title_activity_map">MapActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="labelInfo">获取位置信息</string>
+    <string name="accessibility_desc">获取位置信息</string>
 </resources>

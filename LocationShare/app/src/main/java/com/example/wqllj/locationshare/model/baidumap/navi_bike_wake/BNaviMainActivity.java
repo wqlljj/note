@@ -161,7 +161,7 @@ public class BNaviMainActivity extends Activity {
     boolean isNeedTrajectory=true;
     private final int tra_time_interval = 5000;
     PersonBean personBean = DbManager.getInstance().getOperator(PersonOperator.class).queryByKey(1l);
-    RouteLineBean routeLineBean = new RouteLineBean(allLatLng, System.currentTimeMillis(), personBean);
+    RouteLineBean routeLineBean = new RouteLineBean(allLatLng, System.currentTimeMillis(),personBean.getId(), personBean);
     Runnable trajectoryTask=new Runnable() {
         @Override
         public void run() {

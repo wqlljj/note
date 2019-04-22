@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lfile_colorAccent"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加适配屏幕信息"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="15sp"
+        android:id="@+id/tv_addScreenInfo"
+        />
+</LinearLayout>

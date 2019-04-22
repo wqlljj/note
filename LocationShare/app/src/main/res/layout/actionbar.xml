@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.example.wqllj.locationshare.view.ActionBarEntity" alias="Entity"/>
+        <variable
+            name="entity"
+            type="Entity"/>
+    </data>
+    <LinearLayout
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@{entity.bg}"
+        >
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:text="返回"
+        android:id="@+id/back"
+        android:onClick="@{(view)->entity.onClick(view)}"
+        android:visibility="@{entity.back_visible?View.VISIBLE:View.INVISIBLE}"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="@{entity.title}"
+        android:id="@+id/title"
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:text="设置"
+        android:id="@+id/menu"
+        android:onClick="@{(view)->entity.onClick(view)}"
+        android:visibility="@{entity.menu_visible?View.VISIBLE:View.INVISIBLE}"
+        />
+    </LinearLayout>
+</layout>

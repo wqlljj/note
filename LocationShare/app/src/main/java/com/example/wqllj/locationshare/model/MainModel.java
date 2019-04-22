@@ -23,6 +23,7 @@ public class MainModel {
     BDLocation nowLocation;
     private Intent intentService;
     private Context context;
+    int initNum=0;
     BDLocationListener locationListener=new BDLocationListener() {
         public String TAG="locationListener";
 
@@ -122,7 +123,7 @@ public class MainModel {
         intentService = new Intent(context, MQTTService.class);
 //        context.startService(intentService);
         BaiDuClient.getInstance().init(context);
-        BaiDuClient.getInstance().startLocation(locationListener);
+//        BaiDuClient.getInstance().startLocation(locationListener);
 
 
 

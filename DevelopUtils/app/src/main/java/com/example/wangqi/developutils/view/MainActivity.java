@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "跳转屏幕适配", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this,FitScreenActivity.class));
                 break;
+            case R.id.statistics:
+                Toast.makeText(this, "跳转屏幕适配", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,StatisticsActivity.class));
+                break;
         }
     }
 

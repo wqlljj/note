@@ -1,16 +1,20 @@
 package com.example.wangqi.developutils.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import com.example.wangqi.developutils.application.BaseApplication;
 import com.example.wangqi.developutils.util.ScreenUtil;
 import com.google.gson.Gson;
 
+import java.io.Serializable;
+
 /**
  * Created by cloud on 2018/7/27.
  */
 
-public class ScreenBean {
+public class ScreenBean implements Serializable {
     int width_px;
     int height_px;
     int width_dp;
@@ -91,6 +95,8 @@ public class ScreenBean {
     public String toString() {
         return new Gson().toJson(this)+" ";
     }
+
+
     //    @Override
 //    public String toString() {
 //        return "{" +

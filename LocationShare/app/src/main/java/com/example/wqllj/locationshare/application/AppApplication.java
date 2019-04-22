@@ -9,6 +9,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.example.wqllj.locationshare.db.DbManager;
 import com.example.wqllj.locationshare.model.baidumap.location.service.LocationService;
 
+
 /**
  * Created by wqllj on 2018/6/10.
  */
@@ -29,4 +30,5 @@ public class AppApplication extends Application {
         SDKInitializer.initialize(this);
         DbManager.init(this);
     }
+
 }

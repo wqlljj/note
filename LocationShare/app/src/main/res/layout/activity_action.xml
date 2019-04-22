@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="entity"
+            type="com.example.wqllj.locationshare.view.ActionBarEntity"/>
+        </data>
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bgaction"
+        tools:context="com.example.wqllj.locationshare.view.ActionActivity">
+
+        <include
+            layout="@layout/actionbar"
+            android:id="@+id/actionBar"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/action_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            android:clickable="true">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</layout>

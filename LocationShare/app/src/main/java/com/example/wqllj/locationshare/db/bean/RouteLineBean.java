@@ -28,7 +28,8 @@ public class RouteLineBean {
     @Convert(columnType = String.class, converter = StringConverter.class)
     List<CoordinatePointBean> latLngs;
     Long date;
-    @ToOne(joinProperty = "id")
+    Long personId;
+    @ToOne(joinProperty = "personId")
     PersonBean person;
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
@@ -36,16 +37,18 @@ public class RouteLineBean {
     /** Used for active entity operations. */
     @Generated(hash = 82478916)
     private transient RouteLineBeanDao myDao;
-    @Generated(hash = 1493031423)
-    public RouteLineBean(Long id, List<CoordinatePointBean> latLngs, Long date) {
+    @Generated(hash = 748085805)
+    public RouteLineBean(Long id, List<CoordinatePointBean> latLngs, Long date, Long personId) {
         this.id = id;
         this.latLngs = latLngs;
         this.date = date;
+        this.personId = personId;
     }
-    public RouteLineBean( List<CoordinatePointBean> latLngs, Long date,PersonBean personBean) {
+    public RouteLineBean( List<CoordinatePointBean> latLngs, Long date,Long personId,PersonBean personBean) {
         this.person=personBean;
         this.latLngs = latLngs;
         this.date = date;
+        this.personId=personId;
     }
     @Generated(hash = 757748207)
     public RouteLineBean() {
@@ -71,9 +74,9 @@ public class RouteLineBean {
     @Generated(hash = 1154009267)
     private transient Long person__resolvedKey;
     /** To-one relationship, resolved on first access. */
-    @Generated(hash = 1409988224)
+    @Generated(hash = 1379292464)
     public PersonBean getPerson() {
-        Long __key = this.id;
+        Long __key = this.personId;
         if (person__resolvedKey == null || !person__resolvedKey.equals(__key)) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
@@ -89,12 +92,12 @@ public class RouteLineBean {
         return person;
     }
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 53676548)
+    @Generated(hash = 1189371562)
     public void setPerson(PersonBean person) {
         synchronized (this) {
             this.person = person;
-            id = person == null ? null : person.getId();
-            person__resolvedKey = id;
+            personId = person == null ? null : person.getId();
+            person__resolvedKey = personId;
         }
     }
     /**
@@ -148,5 +151,11 @@ public class RouteLineBean {
                 ", myDao=" + myDao +
                 ", person__resolvedKey=" + person__resolvedKey +
                 '}';
+    }
+    public Long getPersonId() {
+        return this.personId;
+    }
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 }
