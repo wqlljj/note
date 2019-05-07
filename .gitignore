@@ -6,3 +6,4 @@
 /hc-meta-app/.idea
 /hc-meta-app/build
 /hc-meta-app/hariservice/src/main/jniLibs/armeabi/libjingle_peerconnection_so.so
+/DevelopUtils/tvscreeninfo/*.iml

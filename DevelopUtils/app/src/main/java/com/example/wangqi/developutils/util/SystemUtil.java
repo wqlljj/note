@@ -143,6 +143,7 @@ public class SystemUtil {
         TelephonyManager telephonyManager = (TelephonyManager) context
                 .getSystemService(Context.TELEPHONY_SERVICE);
         imei = telephonyManager.getDeviceId();
+        Log.d(TAG, "IMEI: "+imei);
         return imei;
     }
 
@@ -171,6 +172,7 @@ public class SystemUtil {
 
             e.printStackTrace();
         }
+        Log.d(TAG, "SN: "+sn);
         return sn;
     }
 
