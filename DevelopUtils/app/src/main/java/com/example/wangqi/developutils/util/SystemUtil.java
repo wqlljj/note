@@ -6,6 +6,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -270,5 +272,45 @@ public class SystemUtil {
 
     public static int densityDpi(Activity activity) {
         return context.getResources().getDisplayMetrics().densityDpi;  // 屏幕密度DPI（120 / 160 / 240）
+    }
+
+    public static boolean isH265EncoderSupport(){
+        boolean result = false;
+        int count = MediaCodecList.getCodecCount();
+        for(int i=0;i<count;i++){
+            MediaCodecInfo info = MediaCodecList.getCodecInfoAt(i);
+            String name = info.getName();
+            boolean b = info.isEncoder();
+            if(b) {
+                Log.i(TAG, "EncoderSupport: " + name );
+            }
+            if(b && name.contains("hevc")){
+                Log.i(TAG, "isH265EncoderSupport: "+true);
+                return true;
+            }
+        }
+        Log.i(TAG, "isH265EncoderSupport: "+false);
+        return false;
+    }
+
+    /**
+     * 检测是否支持H265硬解码
+     * @return 检测结果
+     */
+    public static boolean isH265DecoderSupport(){
+        int count = MediaCodecList.getCodecCount();
+        for(int i=0;i<count;i++){
+            MediaCodecInfo info = MediaCodecList.getCodecInfoAt(i);
+            String name = info.getName();
+            if(!info.isEncoder()) {
+                Log.i(TAG, "DecoderSupport: " + name);
+            }
+            if(name.contains("decoder") && name.contains("hevc")){
+                Log.i(TAG, "isH265DecoderSupport: true");
+                return true;
+            }
+        }
+        Log.i(TAG, "isH265DecoderSupport: "+false);
+        return false;
     }
 }

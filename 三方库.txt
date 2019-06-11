@@ -11,3 +11,11 @@ https://www.jianshu.com/p/38f0de2c9300
 https://www.jianshu.com/p/cfde3535233d
 
 android 长连接：MQTT,XMPP
+
+
+人脸识别算法：
+dlib  : http://dlib.net/
+openCV:https://sourceforge.net/projects/opencvlibrary/files/opencv-android/
+
+文件选择
+compile 'com.leon:lfilepickerlibrary:1.8.0'

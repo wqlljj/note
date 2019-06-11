@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.wangqi.developutils.R;
 import com.example.wangqi.developutils.databinding.ActivityMainBinding;
+import com.example.wangqi.developutils.util.SystemUtil;
+
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setOnClick(this);
+        SystemUtil.isH265EncoderSupport();
+        SystemUtil.isH265DecoderSupport();
     }
     public void click(View view){
         switch (view.getId()){
